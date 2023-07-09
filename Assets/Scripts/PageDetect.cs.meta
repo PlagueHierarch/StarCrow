@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 12e91853929ec764eac62064b84f1b45
+guid: 3f2aafee3f94f1f45ac3d8e3beee376f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - canvasgroup: {instanceID: 0}
-  - FadeManager: {fileID: 5991509705471086019, guid: 3a6082579b22cec4e8efa92d4fe0ba2a, type: 3}
+  - book: {fileID: 1005608532792021859, guid: 261e7e91db5dbd2469d9f9b3bce80920, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

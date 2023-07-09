@@ -1,22 +1,57 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Fading : MonoBehaviour
+public class Fadeinout : MonoBehaviour
 {
-    public Image FadeImage;
+    public CanvasGroup canvasgroup;
+    public float fadeouttime;
+    public float fadeintime;
 
+    private bool fadein;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        canvasgroup.alpha = 1.0f;
+        fadein = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        //씬 전환 후 페이드인
+        if (fadein == false)
+        {
+            //Debug.Log("Fadein" + fadein);
+            StartCoroutine(Fading());
+        }
+    }
+
+    public IEnumerator Fadeout()
+    { 
+
+        while (canvasgroup.alpha < 1)
+        {
+            canvasgroup.alpha += Time.deltaTime / fadeouttime;
+            yield return null;
+        }
+
+    }
+
+    public IEnumerator Fadein()
+    {
+        while (canvasgroup.alpha > 0)
+        {
+            canvasgroup.alpha -= Time.deltaTime * fadeintime;
+            //Debug.Log("fadeinalpha : "+canvasgroup.alpha);
+            yield return null;
+        }
+        fadein = true;
+    }
+
+    public IEnumerator Fading()
+    {
+            yield return StartCoroutine(Fadein());
     }
 }
