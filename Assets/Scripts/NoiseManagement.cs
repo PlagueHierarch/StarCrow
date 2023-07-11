@@ -8,6 +8,7 @@ public class NoiseManagement : MonoBehaviour
     public GameObject Cat;
     public SceneMove GameOver_Cat;
     AudioSource audioSource_cat;
+    public AudioClip[] ad;
     AudioSource audioSource_crow;
     public float WaitingTime_Crow = 1.0f;
     public float WaitingTime_Cat = 4.0f;
@@ -36,6 +37,7 @@ public class NoiseManagement : MonoBehaviour
         audioSource_crow.Play();
         yield return new WaitForSeconds(WaitingTime_Crow);
         Cat.SetActive(true);
+        audioSource_cat.clip = ad[Random.Range(0, 6)];
         audioSource_cat.Play();
         yield return new WaitForSeconds(WaitingTime_Cat);
         Cat.SetActive(false);
