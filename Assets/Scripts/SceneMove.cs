@@ -15,7 +15,7 @@ public class SceneMove : MonoBehaviour
         StartCoroutine(ChangeScene());
     }
 
-    private IEnumerator ChangeScene()
+    public IEnumerator ChangeScene()
     {
         yield return StartCoroutine(FadeManager.GetComponent<Fadeinout>().Fadeout());
         SceneManager.LoadScene(Scenename);
