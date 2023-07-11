@@ -623,8 +623,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cat: {fileID: 1373009837}
   GameOver_Cat: {fileID: 247883679}
+  ad:
+  - {fileID: 8300000, guid: fb916d75fa7cabb4f93a8d35bfdf32a3, type: 3}
+  - {fileID: 8300000, guid: 463adc03ef4147c4783090d4b8b99e99, type: 3}
+  - {fileID: 8300000, guid: 81fa55e981d19c545962a01c401cdb40, type: 3}
+  - {fileID: 8300000, guid: f05fef336b58116479c09d8102dc5f9c, type: 3}
+  - {fileID: 8300000, guid: 3fa05aab6720dc84eb055973427eba52, type: 3}
+  - {fileID: 8300000, guid: da70e03edd30e234182da6deb26fa596, type: 3}
   WaitingTime_Crow: 1.5
-  WaitingTime_Cat: 4
+  WaitingTime_Cat: 3
 --- !u!4 &600517298
 Transform:
   m_ObjectHideFlags: 0
@@ -1046,8 +1053,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 01cb88dc4aeb5b940b906804b3c1494f, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
