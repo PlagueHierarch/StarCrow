@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scenename: GameOver_Cat
-  FadeManager: {fileID: 5991509705471086019, guid: 3a6082579b22cec4e8efa92d4fe0ba2a, type: 3}
+  FadeManager: {fileID: 540860238}
 --- !u!4 &247883680
 Transform:
   m_ObjectHideFlags: 0
@@ -862,7 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scenename: DoorOpen
-  FadeManager: {fileID: 5991509705471086019, guid: 3a6082579b22cec4e8efa92d4fe0ba2a, type: 3}
+  FadeManager: {fileID: 540860238}
 --- !u!4 &764127057
 Transform:
   m_ObjectHideFlags: 0
