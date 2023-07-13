@@ -50,7 +50,7 @@ public class TimerManager : MonoBehaviour
             }
             if ((int)curTime == 0)
             {
-                StartCoroutine(GameOver_Timer.ChangeScene());
+                yield return StartCoroutine(gameObject.GetComponent<SceneMove>().ChangeScene());
                 yield break;
             }
             yield return null;

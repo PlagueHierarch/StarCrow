@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: canvasgroup
       value: 
       objectReference: {fileID: 1665403277}
+    - target: {fileID: 8701984167349024740, guid: 3a6082579b22cec4e8efa92d4fe0ba2a, type: 3}
+      propertyPath: fadeouttime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8847183506650871687, guid: 3a6082579b22cec4e8efa92d4fe0ba2a, type: 3}
       propertyPath: m_RootOrder
       value: 1
