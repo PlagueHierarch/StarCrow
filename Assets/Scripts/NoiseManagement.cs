@@ -12,6 +12,7 @@ public class NoiseManagement : MonoBehaviour
     AudioSource audioSource_crow;
     public float WaitingTime_Crow = 1.0f;
     public float WaitingTime_Cat = 4.0f;
+    public TimerManager TimerManager;
 
     private void Awake()
     {
@@ -46,7 +47,7 @@ public class NoiseManagement : MonoBehaviour
 
     private void GameOverCat()
     {
-        //시계 구현 시 타이머 멈추기
+        StartCoroutine(TimerManager.timerStop());
         StartCoroutine(GameOver_Cat.ChangeScene());
     }
 }
