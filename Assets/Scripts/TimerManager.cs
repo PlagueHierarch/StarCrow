@@ -16,6 +16,7 @@ public class TimerManager : MonoBehaviour
     public float curTime; //빌드 전에 private로 만들기
     public int warning1 = 1200;
     public int warning2 = 600;
+
     void Start()
     {
         StartCoroutine(timerStart());
@@ -39,13 +40,15 @@ public class TimerManager : MonoBehaviour
     {
         while (curTime > 0)
         {
-            Debug.Log((int)curTime);
+            //Debug.Log((int)curTime);
             yield return new WaitForSeconds(1);//빌드 전 비활성화
             if ((int)curTime == warning1 || (int)curTime == warning2)
             {
                 //시계탑 경고(말풍선)
                 audiosource_Warning.Play();
-                Debug.Log("warning");
+                StartCoroutine(gameObject.GetComponent<SpeechBubbleShow>().Bubble());
+                gameObject.GetComponent<SpeechBubbleShow>().scriptNo += 1;
+                //Debug.Log("warning");
                 yield return new WaitForSeconds(1);
             }
             if ((int)curTime == 0)

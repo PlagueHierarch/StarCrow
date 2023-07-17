@@ -9,21 +9,30 @@ public class SpeechBubbleShow : MonoBehaviour
     public GameObject SpeechBubble;
     public TextMeshProUGUI textmesh;
     public CanvasGroup canvasGroup;
-    public string dialogue;
     public float fadetime;
     public float onTime;
+
+    public float fontSize;
 
     bool bubbleOn;
 
     public Vector3 offset;
 
+    public GameObject DialogueManager;
+    public int obj;
+    public int scriptNo;
+    public string dialogue;
 
     private void Awake()
     {
         bubbleOn = false;
-        //canvasGroup = SpeechBubble.GetComponent<CanvasGroup>();
+        canvasGroup = SpeechBubble.GetComponent<CanvasGroup>();
     }
 
+    private void Start()
+    {
+        //dialogue = DialogueManager.GetComponent<JsonParsing>().line.Dialogues[obj].Dialogue[scriptNo].text;
+    }
     private void OnMouseDown()
     {
         if (bubbleOn == false)
@@ -39,20 +48,22 @@ public class SpeechBubbleShow : MonoBehaviour
         while (canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime / fadetime;
-            Debug.Log("bubblenalpha : " + canvasGroup.alpha);
+            //Debug.Log("bubblenalpha : " + canvasGroup.alpha);
             yield return null;
         }
         yield return new WaitForSeconds(1);
 
     }
 
-    private IEnumerator Bubble()
+    public IEnumerator Bubble()
     {
         bubbleOn = true;
-        var bubble = Instantiate(SpeechBubble, Camera.main.WorldToScreenPoint(gameObject.transform.position + offset), transform.rotation, GameObject.FindGameObjectWithTag("Canvas").transform);
+        var bubble = Instantiate(SpeechBubble, gameObject.transform.position + offset, transform.rotation, GameObject.FindGameObjectWithTag("Canvas").transform);
         textmesh = bubble.transform.GetComponentInChildren<TextMeshProUGUI>();
         canvasGroup = bubble.GetComponent<CanvasGroup>();
         SpeechBubble.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        dialogue = DialogueManager.GetComponent<JsonParsing>().line.Dialogues[obj].Dialogue[scriptNo].text;
+        textmesh.fontSize = fontSize;
         textmesh.text = dialogue;
         StartCoroutine(Typing());
         yield return new WaitForSeconds(onTime);

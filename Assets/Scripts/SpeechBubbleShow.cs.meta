@@ -3,7 +3,11 @@ guid: 269fbebcb85ee0045b8004d48958cd57
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - SpeechBubble: {instanceID: 0}
+  - textmesh: {instanceID: 0}
+  - canvasGroup: {instanceID: 0}
+  - Dialogue: {fileID: 4900000, guid: 730b944c4cb7f3c4b8368540dac80aed, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
