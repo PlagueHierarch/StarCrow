@@ -9,6 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Early_StoryScenes/Story_no1.unity
+    guid: 828de23624067474fad19ae45317e167
+  - enabled: 1
+    path: Assets/Scenes/Early_StoryScenes/Story_no2.unity
+    guid: cf35051ce8ddf534cb81dc447218b58e
+  - enabled: 1
+    path: Assets/Scenes/GameOver_Stay.unity
+    guid: 1818fc3c57b360148962971776655c61
+  - enabled: 1
+    path: Assets/Scenes/Early_StoryScenes/Story_no3.unity
+    guid: 733fdd6929cd8794ca5c93f1c6acc326
+  - enabled: 1
+    path: Assets/Scenes/Early_StoryScenes/Story_no4.unity
+    guid: dc636bd28fa059d48af21399f6974984
+  - enabled: 1
+    path: Assets/Scenes/Early_StoryScenes/Story_no5.unity
+    guid: 3915f04756443d546b355ae784e51c15
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 8dcb309bfb0d0574388eae8cc44e0c89
   - enabled: 1
