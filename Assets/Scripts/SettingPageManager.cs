@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public static class UserSettingSave
 {
     public static float gamma = 1;
-    public static float audio_Main = 0;
-    public static float audio_Sfx = 0;
-    //public static float audio_Music;
+    public static float audio_Main = 1;
+    public static float audio_Sfx = 1;
+    public static float audio_Music = 1;
 }
 public class SettingPageManager : MonoBehaviour
 {
@@ -20,11 +20,13 @@ public class SettingPageManager : MonoBehaviour
     public Slider MasterSlider;
     public Slider SFXSlider;
     public Slider GammaSlider;
+    public Slider MusicSlider;
     public CanvasGroup GammaImage;
 
     void Start()
     {
         SettingPage.SetActive(false);
+        LoadSavedSetting();
         AudioControl();
         GammaControl();
     }
@@ -33,30 +35,41 @@ public class SettingPageManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.P))
         {
-            
-            if (TimerManager.isStop == false)
-            {
-                StartCoroutine(TimerManager.timerStop()); //코루틴 중복 호출 제한
-            }
-            SettingPage.SetActive(true);
+            OpenSettingPage();
         }
     }
-
-    public float Lerp(float s, float e, float t)
+    public void OpenSettingPage()
     {
-        return s + (e - s) * t;
+        if (TimerManager.isStop == false)
+        {
+            StartCoroutine(TimerManager.timerStop()); //코루틴 중복 호출 제한
+        }
+        SettingPage.SetActive(true);
+    }
+
+    public float Lerp(float volmin, float volmax, float slidervalue)
+    {
+        float volume = volmin + (volmax - volmin) * slidervalue;
+        if (slidervalue == 0) volume = -80;
+        return volume;
+    }
+    void LoadSavedSetting()
+    {
+        MasterSlider.value = UserSettingSave.audio_Main;
+        SFXSlider.value = UserSettingSave.audio_Sfx;
+        MusicSlider.value = UserSettingSave.audio_Music;
+        GammaSlider.value = UserSettingSave.gamma;
     }
     public void AudioControl()
     {
-        UserSettingSave.audio_Main = Lerp(-40, 10, MasterSlider.value);
-        MasterVolume.SetFloat("Volume_Main", UserSettingSave.audio_Main);
+        UserSettingSave.audio_Main = MasterSlider.value;
+        MasterVolume.SetFloat("Volume_Main", Lerp(-20, 10, MasterSlider.value));
 
-        UserSettingSave.audio_Sfx = Lerp(-40, 10, SFXSlider.value);
-        MasterVolume.SetFloat("Volume_SFX", UserSettingSave.audio_Sfx);
+        UserSettingSave.audio_Sfx = SFXSlider.value;
+        MasterVolume.SetFloat("Volume_SFX", Lerp(-20, 10, SFXSlider.value));
 
-        Debug.Log("Volume Change");
-        //UserSettingSave.audio_Music = MusicSlider.value; //--> BGM 삽입 이후 슬라이더 추가 및 설정
-        //MasterVolume.SetFloat("Volume_Music", UserSettingSave.audio_Music);
+        UserSettingSave.audio_Music = MusicSlider.value;
+        MasterVolume.SetFloat("Volume_Music", Lerp(-20, 10, MusicSlider.value));
     }
 
     public void GammaControl()
