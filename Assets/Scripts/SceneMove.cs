@@ -12,7 +12,11 @@ public class SceneMove : MonoBehaviour
 
     private void OnMouseDown()
     {
-        StartCoroutine(ChangeScene());
+        if (ShowBook.BookOn == false && SettingPageManager.GamePaused == false)
+        {
+            StartCoroutine(ChangeScene());
+        }
+       
     }
 
     public IEnumerator ChangeScene()

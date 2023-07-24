@@ -23,6 +23,8 @@ public class SettingPageManager : MonoBehaviour
     public Slider MusicSlider;
     public CanvasGroup GammaImage;
 
+    public static bool GamePaused = false;
+
     void Start()
     {
         SettingPage.SetActive(false);
@@ -33,9 +35,11 @@ public class SettingPageManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.P) && GamePaused == false)
         {
+            Time.timeScale = 0f;
             OpenSettingPage();
+            GamePaused = true;
         }
     }
     public void OpenSettingPage()
@@ -45,6 +49,7 @@ public class SettingPageManager : MonoBehaviour
             StartCoroutine(TimerManager.timerStop()); //코루틴 중복 호출 제한
         }
         SettingPage.SetActive(true);
+        
     }
 
     public float Lerp(float volmin, float volmax, float slidervalue)
@@ -80,8 +85,10 @@ public class SettingPageManager : MonoBehaviour
 
     public void SettingPageOff() //세팅 페이지의 나가기 버튼에 할당
     {
+        Time.timeScale = 1f;
         TimerManager.timerRestart();
         SettingPage.SetActive(false);
+        GamePaused = false;
     }
     public void QuitGame ()//에디터에선 작동 안됨(빌드 프로그램에선 정상 작동)
     {

@@ -35,7 +35,7 @@ public class SpeechBubbleShow : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (bubbleOn == false)
+        if (bubbleOn == false && SettingPageManager.GamePaused == false && ShowBook.BookOn == false)
         {
             StartCoroutine(Bubble());
         }

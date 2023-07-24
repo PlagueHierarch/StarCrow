@@ -4,8 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - book: {fileID: 7941778116868997141, guid: 899cd2550a26bb44aa90c3f4e59f1a17, type: 3}
-  - bookRenderer: {fileID: 593238795146727252, guid: 899cd2550a26bb44aa90c3f4e59f1a17, type: 3}
+  - book: {fileID: 1005608532792021859, guid: 261e7e91db5dbd2469d9f9b3bce80920, type: 3}
+  - bookRenderer: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

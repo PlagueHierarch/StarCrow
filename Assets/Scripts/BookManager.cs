@@ -19,13 +19,23 @@ public class BookManager : MonoBehaviour
 
     AudioSource audioSource;
 
+    public Sprite[] pages;
+    public int maxPage;
+    public int curPage = 0;
+    public SpriteRenderer pageSprite;
+
     private void Awake()
     {
         bookEnabled = true;
         RightPage = GameObject.Find("RightPage");
         LeftPage = GameObject.Find("LeftPage");
-
+        pageSprite = transform.Find("Page").GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        pageSprite.sprite = pages[curPage];
     }
 
     private void Update()
@@ -43,16 +53,24 @@ public class BookManager : MonoBehaviour
             //책 오른쪽을 누를 경우 앞으로 넘기는 애니메이션 재생
             if (RightPage.GetComponent<PageDetect>().rightPageClicked == true)
             {
-                dir = RightPage.GetComponent<PageDetect>().direction;
-                StartCoroutine(TurnPage_Wait());
+                if (curPage < maxPage)
+                {
+                    dir = RightPage.GetComponent<PageDetect>().direction;
+                    StartCoroutine(TurnPage_Wait());
+                }
+                
 
             }
 
             //책 왼쪽을 누를 경우 뒤로 넘기는 애니메이션 재생
             if (LeftPage.GetComponent<PageDetect>().leftPageClicked == true)
             {
-                dir = LeftPage.GetComponent<PageDetect>().direction;
-                StartCoroutine(TurnPage_Wait());
+                if (curPage > 0)
+                {
+                    dir = LeftPage.GetComponent<PageDetect>().direction;
+                    StartCoroutine(TurnPage_Wait());
+                }
+                
 
             }
         }
@@ -64,13 +82,14 @@ public class BookManager : MonoBehaviour
     {
         //책을 연속적으로 넘기는 경우 방지
         bookEnabled = false;
+        pageSprite.sprite = null;
         //효과음 재생
         audioSource.clip = pageTurn; 
         audioSource.Play();
         //책 넘기는 애니메이션이 종료될 때까지 대기
         yield return StartCoroutine(TurnPage(dir));
+        yield return new WaitForSeconds(1);        
         bookEnabled = true;
-        yield return new WaitForSeconds(1);
     }
 
     private IEnumerator TurnPage(string dir)
@@ -78,17 +97,20 @@ public class BookManager : MonoBehaviour
         //누른 방향에 따라 출력 애니메이션 변동
         if (dir == "right")
         {
+            curPage++;
             pageAnim.Play("NextPage");
         }
 
         else if (dir == "left")
         {
+            curPage--;
             pageAnim.Play("PrevPage");
         }
 
         //넘김 종료
         pageAnim.SetTrigger("Finish");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
+        pageSprite.sprite = pages[curPage];
         LeftPage.GetComponent<PageDetect>().leftPageClicked = false;
         RightPage.GetComponent<PageDetect>().rightPageClicked = false;
     }

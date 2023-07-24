@@ -10,22 +10,34 @@ public class ShowBook : MonoBehaviour
     public SpriteRenderer bookRenderer;
     AudioSource audioSource;
 
+    public static bool BookOn;
+
+    public Sprite[] pages;
+    public int maxPage;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>(); 
     }
     private void OnMouseDown()
     {
-        StartCoroutine(Bookinstant(book));
+        if (BookOn == false && SettingPageManager.GamePaused == false)
+        {
+            StartCoroutine(Bookinstant(book));
+            BookOn = true;
+        }
+        
     }
 
     private IEnumerator Bookinstant(GameObject book)
     {
         audioSource.Play();
         book = Instantiate(book) as GameObject;
-        bookRenderer = book.transform.GetComponent<SpriteRenderer>();
+        book.GetComponent<BookManager>().pages = pages;
+        book.GetComponent<BookManager>().maxPage = maxPage;
+        bookRenderer = book.transform.Find("BookCover").GetComponent<SpriteRenderer>();
         bookRenderer.material.color = new Color(coverColor[0]/255f, coverColor[1]/255f, coverColor[2]/255f);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         //book.GetComponent<BookManager>().bookEnabled = true;
     }
 }
