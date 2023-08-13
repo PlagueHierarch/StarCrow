@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class BookManager : MonoBehaviour
+public class PageTurner : MonoBehaviour
 {
     //페이지 넘기는 애니메이션 관리용 변수들
     public Animator pageAnim;
@@ -18,19 +19,21 @@ public class BookManager : MonoBehaviour
     string Type;
 
     AudioSource audioSource;
+    public SpriteRenderer pageSprite;
 
     public Sprite[] pages;
     public int maxPage;
     public int curPage = 0;
-    public SpriteRenderer pageSprite;
 
     private void Awake()
     {
         bookEnabled = true;
+        audioSource = GetComponent<AudioSource>();
+
+        pageAnim = GameObject.Find("Bookpages").GetComponent<Animator>();
         RightPage = GameObject.Find("RightPage");
         LeftPage = GameObject.Find("LeftPage");
         pageSprite = transform.Find("Page").GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -38,10 +41,9 @@ public class BookManager : MonoBehaviour
         pageSprite.sprite = pages[curPage];
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
- 
-
         if (bookEnabled == true)
         {
             //ESC 입력 시 책 오브젝트 파괴
@@ -58,7 +60,7 @@ public class BookManager : MonoBehaviour
                     dir = RightPage.GetComponent<PageDetect>().direction;
                     StartCoroutine(TurnPage_Wait());
                 }
-                
+
 
             }
 
@@ -70,26 +72,10 @@ public class BookManager : MonoBehaviour
                     dir = LeftPage.GetComponent<PageDetect>().direction;
                     StartCoroutine(TurnPage_Wait());
                 }
-                
+
 
             }
         }
-        
-
-    }
-
-    private IEnumerator TurnPage_Wait()
-    {
-        //책을 연속적으로 넘기는 경우 방지
-        bookEnabled = false;
-        pageSprite.sprite = null;
-        //효과음 재생
-        audioSource.clip = pageTurn; 
-        audioSource.Play();
-        //책 넘기는 애니메이션이 종료될 때까지 대기
-        yield return StartCoroutine(TurnPage(dir));
-        yield return new WaitForSeconds(1);        
-        bookEnabled = true;
     }
 
     private IEnumerator TurnPage(string dir)
@@ -115,6 +101,19 @@ public class BookManager : MonoBehaviour
         RightPage.GetComponent<PageDetect>().rightPageClicked = false;
     }
 
+    private IEnumerator TurnPage_Wait()
+    {
+        //책을 연속적으로 넘기는 경우 방지
+        bookEnabled = false;
+        pageSprite.sprite = null;
+        //효과음 재생
+        audioSource.clip = pageTurn;
+        audioSource.Play();
+        //책 넘기는 애니메이션이 종료될 때까지 대기
+        yield return StartCoroutine(TurnPage(dir));
+        yield return new WaitForSeconds(1);
+        bookEnabled = true;
+    }
     private IEnumerator PlaycloseSfx()
     {
         audioSource.clip = bookClose;
@@ -125,6 +124,7 @@ public class BookManager : MonoBehaviour
     private IEnumerator DestroyBook()
     {
         yield return StartCoroutine(PlaycloseSfx());
+        BookSwitch.BookOn = false;
         Destroy(GameObject.FindGameObjectWithTag("Book"));
     }
 }

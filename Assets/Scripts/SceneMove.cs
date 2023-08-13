@@ -12,14 +12,14 @@ public class SceneMove : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (ShowBook.BookOn == false && SettingPageManager.GamePaused == false)
+        if (BookSwitch.BookOn == false && SettingPageManager.GamePaused == false)
         {
-            StartCoroutine(ChangeScene());
+            StartCoroutine(ChangeScene(Scenename));
         }
        
     }
 
-    public IEnumerator ChangeScene()
+    public IEnumerator ChangeScene(string Scenename)
     {
         yield return StartCoroutine(FadeManager.GetComponent<Fadeinout>().Fadeout());
         SceneManager.LoadScene(Scenename);
@@ -27,7 +27,7 @@ public class SceneMove : MonoBehaviour
 
     public void ChangeSceneAlt() //버튼에 할당하기 위해 코루틴이 아닌 일반 함수로 한 번 더 정의
     {
-        StartCoroutine(ChangeScene());
+        StartCoroutine(ChangeScene(Scenename));
     }
 
 }

@@ -35,7 +35,7 @@ public class SettingPageManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.P) && GamePaused == false)
+        if (Input.GetKey(KeyCode.P) && GamePaused == false )
         {
             Time.timeScale = 0f;
             OpenSettingPage();

@@ -48,6 +48,6 @@ public class PasswordManager : MonoBehaviour
     private void right()
     {
         StartCoroutine(TimerManager.timerStop());
-        StartCoroutine(DoorOpen.ChangeScene());
+        StartCoroutine(DoorOpen.ChangeScene(DoorOpen.Scenename));
     }
 }

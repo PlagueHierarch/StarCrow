@@ -53,7 +53,7 @@ public class TimerManager : MonoBehaviour
             }
             if ((int)curTime == 0)
             {
-                yield return StartCoroutine(gameObject.GetComponent<SceneMove>().ChangeScene());
+                yield return StartCoroutine(gameObject.GetComponent<SceneMove>().ChangeScene(gameObject.GetComponent<SceneMove>().Scenename));
                 yield break;
             }
             yield return null;

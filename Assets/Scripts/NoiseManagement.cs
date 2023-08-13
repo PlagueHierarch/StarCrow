@@ -48,6 +48,6 @@ public class NoiseManagement : MonoBehaviour
     private void GameOverCat()
     {
         StartCoroutine(TimerManager.timerStop());
-        StartCoroutine(GameOver_Cat.ChangeScene());
+        StartCoroutine(GameOver_Cat.ChangeScene(GameOver_Cat.Scenename));
     }
 }

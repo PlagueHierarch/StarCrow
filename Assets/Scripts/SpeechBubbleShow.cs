@@ -14,9 +14,9 @@ public class SpeechBubbleShow : MonoBehaviour
 
     public float fontSize;
 
-    bool bubbleOn;
+    static bool bubbleOn;
 
-    public Vector3 offset;
+    public GameObject dialoguepos;
 
     public GameObject DialogueManager;
     public int obj;
@@ -35,7 +35,7 @@ public class SpeechBubbleShow : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (bubbleOn == false && SettingPageManager.GamePaused == false && ShowBook.BookOn == false)
+        if (bubbleOn == false)
         {
             StartCoroutine(Bubble());
         }
@@ -58,10 +58,9 @@ public class SpeechBubbleShow : MonoBehaviour
     public IEnumerator Bubble()
     {
         bubbleOn = true;
-        var bubble = Instantiate(SpeechBubble, gameObject.transform.position + offset, transform.rotation, GameObject.FindGameObjectWithTag("Canvas").transform);
+        var bubble = Instantiate(SpeechBubble, dialoguepos.transform.position, transform.rotation, GameObject.FindGameObjectWithTag("Canvas").transform);
         textmesh = bubble.transform.GetComponentInChildren<TextMeshProUGUI>();
         canvasGroup = bubble.GetComponent<CanvasGroup>();
-        SpeechBubble.transform.position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         dialogue = DialogueManager.GetComponent<JsonParsing>().line.Dialogues[obj].Dialogue[scriptNo].text;
         textmesh.fontSize = fontSize;
         textmesh.text = dialogue;

@@ -17,7 +17,7 @@ public class PageDetect : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (book.GetComponent<BookManager>().bookEnabled == true)
+        if (book.GetComponent<PageTurner>().bookEnabled == true)
         {
             if (direction == "right" && rightPageClicked == false)
             {
