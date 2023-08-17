@@ -14,7 +14,7 @@ public class SpeechBubbleShow : MonoBehaviour
 
     public float fontSize;
 
-    static bool bubbleOn;
+    public static bool bubbleOn;
 
     public GameObject dialoguepos;
 
@@ -35,7 +35,7 @@ public class SpeechBubbleShow : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (bubbleOn == false)
+        if (bubbleOn == false && SettingPageManager.GamePaused == false && BookSwitch.BookOn == false)
         {
             StartCoroutine(Bubble());
         }

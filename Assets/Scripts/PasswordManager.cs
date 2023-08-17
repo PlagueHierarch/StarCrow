@@ -18,9 +18,18 @@ public class PasswordManager : MonoBehaviour
     public SceneMove DoorOpen;
     public TimerManager TimerManager;
 
+    public int hisscounter;
+    public GameObject dialogueManager;
+    public SpeechBubbleShow bubbleshow;
+
+    private bool wrongAnswer;
+
     private void Start()
     {
         answersubmitter.text = savepassword.answer;
+        bubbleshow = dialogueManager.GetComponent<SpeechBubbleShow>();
+        hisscounter = 0;
+        wrongAnswer = false;
     }
 
     public void SubmitAnswer()
@@ -30,19 +39,27 @@ public class PasswordManager : MonoBehaviour
 
     public void CheckAnswer()
     {
-        if (savepassword.answer != password && savepassword.answer != "") wrong();
+        if (wrongAnswer == false && SpeechBubbleShow.bubbleOn == false)
+        {
+            if (savepassword.answer != password && savepassword.answer != "") StartCoroutine(wrong());
 
-        else if (savepassword.answer == password) right();
+            else if (savepassword.answer == password) right();
+        }
 
-        if (savepassword.answer == "0000") //ºôµå Àü »èÁ¦
+        /*if (savepassword.answer == "0000") //ºôµå Àü »èÁ¦
         {
             TimerManager.curTime = 10;
-        }
+        }*/
     }
-    private void wrong()
+    private IEnumerator wrong()
     {
+        wrongAnswer = true;
         noiseObject.AddNoise();
+        bubbleshow.scriptNo = hisscounter;
         Debug.Log(savepassword.answer);
+        yield return StartCoroutine(bubbleshow.Bubble());
+        hisscounter++;
+        wrongAnswer = false;
     }
 
     private void right()

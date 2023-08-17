@@ -41,6 +41,7 @@ public class SettingPageManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.P) && GamePaused == false )
         {
+            //Debug.Log("paused");
             Time.timeScale = 0f;
             OpenSettingPage();
             GamePaused = true;

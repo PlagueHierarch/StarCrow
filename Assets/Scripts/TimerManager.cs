@@ -47,7 +47,7 @@ public class TimerManager : MonoBehaviour
                 //시계탑 경고(말풍선)
                 audiosource_Warning.Play();
                 StartCoroutine(gameObject.GetComponent<SpeechBubbleShow>().Bubble());
-                gameObject.GetComponent<SpeechBubbleShow>().scriptNo += 1;
+                gameObject.GetComponent<SpeechBubbleShow>().scriptNo++;
                 //Debug.Log("warning");
                 yield return new WaitForSeconds(1);
             }

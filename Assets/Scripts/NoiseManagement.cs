@@ -22,7 +22,7 @@ public class NoiseManagement : MonoBehaviour
 
     private void Start()
     {
-        Cat.SetActive(false);
+        //Cat.SetActive(false);
     }
     private int Noise = 0;
     
@@ -30,24 +30,25 @@ public class NoiseManagement : MonoBehaviour
     {
         Noise++;
         if (Noise < 5) StartCoroutine(Warning());
-        else GameOverCat();
+        else StartCoroutine(GameOverCat());
     }
 
     public IEnumerator Warning()
     {
         audioSource_crow.Play();
         yield return new WaitForSeconds(WaitingTime_Crow);
-        Cat.SetActive(true);
+        //Cat.SetActive(true);
         if (Noise <= 3) audioSource_cat.clip = ad[Random.Range(0, 1)];
         else audioSource_cat.clip = ad[Random.Range(2, 6)];
         audioSource_cat.Play();
         yield return new WaitForSeconds(WaitingTime_Cat);
-        Cat.SetActive(false);
+        //Cat.SetActive(false);
         yield return null;
     }
 
-    private void GameOverCat()
+    private IEnumerator GameOverCat()
     {
+        yield return new WaitForSeconds(3f);
         StartCoroutine(TimerManager.timerStop());
         StartCoroutine(GameOver_Cat.ChangeScene(GameOver_Cat.Scenename));
     }
