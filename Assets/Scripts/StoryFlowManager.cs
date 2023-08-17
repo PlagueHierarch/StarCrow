@@ -2,29 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
+using UnityEngine.Windows.WebCam;
 
-public static class UserSave
-{
-    public static bool tutorial = true;//메인 씬 튜토리얼 진행 후 false(튜토리얼 재생 방지용)
-}
 public class StoryFlowManager : MonoBehaviour
 {
     public SettingPageManager PageManager;
     
     public bool UsingTimer = false;
-    public bool UsingOptions = false;
-    public GameObject Options = null;
+    public GameObject ProceedButton = null;
     
-    public float dialogTime = 0f;//선택지나 진행 버튼이 나오기까지의 시간
-    
-    public float laterDialogtime = 0f;
+    public float dialogTime = 0f;//진행 버튼이 나오기까지의 시간
+    public GameObject Story1 = null;
+    public GameObject Story2 = null;
+    public VideoPlayer vid = null;
     private void Awake()
-    {
-        if (UsingOptions == true) Options.SetActive(false);        
+    { 
+        ProceedButton.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "DoorOpen")
+        { 
+            Story1.SetActive(true);
+            Story2.SetActive(false);
+        }
     }
     private void Start()
     {
-        if (UsingOptions == true) StartCoroutine(OptionActive());
+        StartCoroutine(StoryWaitingTime());
+        if (SceneManager.GetActiveScene().name == "DoorOpen")
+        {
+            StartCoroutine(SceneDoorOpen());
+        }
     }
     private void Update()
     {
@@ -34,28 +41,20 @@ public class StoryFlowManager : MonoBehaviour
             PageManager.TimerManager.curTime = 1800f;
         }
     }
-    IEnumerator OptionActive()
+    IEnumerator StoryWaitingTime()
     {
         yield return new WaitForSeconds(dialogTime);
-        Options.SetActive(true);
+        ProceedButton.SetActive(true);
+    }
+    IEnumerator SceneDoorOpen()
+    {
+        yield return new WaitForSeconds(3);
+        Story1.SetActive(false);
+        Story2.SetActive(true);
+        yield return new WaitForSeconds(2);
+        vid.Play();
+        yield return new WaitForSeconds(1);
+        GameObject.Find("Story2").SetActive(false);
         yield return null;
-    }
-    public void caseOption1() //선택지 선택 후 대사 또는 딜레이가 있는 경우
-    {
-        StartCoroutine(choice1());   
-    }
-    IEnumerator choice1()
-    {
-        //대사 등 SetActive용 필드
-        yield return new WaitForSeconds(laterDialogtime);
-    }
-    public void caseOption2() //그 외
-    {
-        //Scene 전환 등 함수용 필드
-    }
-
-    public void Tutorial()//bool tutorial이 true일 때 한번 호출
-    {
-        //게임 진행 방법 설명
     }
 }

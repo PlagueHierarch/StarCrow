@@ -38,7 +38,8 @@ public class NoiseManagement : MonoBehaviour
         audioSource_crow.Play();
         yield return new WaitForSeconds(WaitingTime_Crow);
         Cat.SetActive(true);
-        audioSource_cat.clip = ad[Random.Range(0, 6)];
+        if (Noise <= 3) audioSource_cat.clip = ad[Random.Range(0, 1)];
+        else audioSource_cat.clip = ad[Random.Range(2, 6)];
         audioSource_cat.Play();
         yield return new WaitForSeconds(WaitingTime_Cat);
         Cat.SetActive(false);
