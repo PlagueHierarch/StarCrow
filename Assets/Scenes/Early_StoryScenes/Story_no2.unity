@@ -306,8 +306,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PageManager: {fileID: 416374754}
   UsingTimer: 0
-  UsingOptions: 1
+  UsingOptions: 0
   Options: {fileID: 0}
+  ProceedButton: {fileID: 0}
   dialogTime: 10
   laterDialogtime: 0
 --- !u!4 &294397724

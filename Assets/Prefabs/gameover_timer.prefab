@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e91853929ec764eac62064b84f1b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scenename: GameOver_Timer
+  Scenename: GameOver_Cat
   FadeManager: {fileID: 5991509705471086019, guid: 3a6082579b22cec4e8efa92d4fe0ba2a, type: 3}

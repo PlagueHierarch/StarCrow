@@ -905,7 +905,7 @@ AudioSource:
   m_GameObject: {fileID: 600517296}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3866677187237786879, guid: f11453ab1a56c4245af969c80c6ea1e6, type: 2}
   m_audioClip: {fileID: 8300000, guid: 06df1d79b46af294184289c4734943c5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1255,7 +1255,7 @@ AudioSource:
   m_GameObject: {fileID: 1373009837}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3866677187237786879, guid: f11453ab1a56c4245af969c80c6ea1e6, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1599,7 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e9af7d9b8c4a542bad6fd97df2078b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  password: TestAnswer
+  password: "\uB2EC\uC5C6\uB294\uAE5C\uAE5C\uD55C\uBC24\uC5D0\uBE5B\uB098\uB294\uBCC4"
   answersubmitter: {fileID: 1467472552}
   noiseObject: {fileID: 600517297}
   DoorOpen: {fileID: 764127056}
