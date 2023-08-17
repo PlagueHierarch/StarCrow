@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Title.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 55ea7e475e6eb904585995d247573b0d
   - enabled: 1
     path: Assets/Scenes/Early_StoryScenes/Story_no1.unity
     guid: 828de23624067474fad19ae45317e167
@@ -41,7 +41,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver_Cat.unity
     guid: 9e418cd5973bfa34dbb5e6c4ed7e5697
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameOver_Timer.unity
     guid: dc4724ccc4b6bf344b0c0f17da851b26
+  - enabled: 1
+    path: Assets/Scenes/ExplainScene.unity
+    guid: f817870085d9dab47abf60b44753b8d5
   m_configObjects: {}
