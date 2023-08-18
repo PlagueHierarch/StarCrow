@@ -12,14 +12,7 @@ public class BGM_manager : MonoBehaviour
     string SceneName;
     private void Awake()
     {
-        curSceneName = SceneManager.GetActiveScene().name;
-        BGM = BGM_Management.GetComponent<AudioSource>();
-        if (BGM.isPlaying) return;
-        else
-        {
-            BGM.Play();
-            DontDestroyOnLoad(BGM_Management);
-        }
+        StartCoroutine(StartBGM());
     }
     
     private void Update()
@@ -27,6 +20,10 @@ public class BGM_manager : MonoBehaviour
         SceneName = SceneManager.GetActiveScene().name;
         if (SceneName != curSceneName)
         {
+            if (SceneName == "Title")
+            {
+                Destroy(BGM_Management);
+            }
             Debug.Log("Scene Changed");  
             StartCoroutine(CompareBGMs());
             BGM_Compare = null;
@@ -45,6 +42,19 @@ public class BGM_manager : MonoBehaviour
             BGM.volume = BGM_Compare.volume;
             BGM.Play();
             yield return null;
+        }
+        yield return null;
+    }
+
+    IEnumerator StartBGM()
+    {
+        curSceneName = SceneManager.GetActiveScene().name;
+        BGM = BGM_Management.GetComponent<AudioSource>();
+        if (BGM.isPlaying) yield break;
+        else
+        {
+            BGM.Play();
+            DontDestroyOnLoad(BGM_Management);
         }
         yield return null;
     }
