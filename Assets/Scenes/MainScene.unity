@@ -2383,6 +2383,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7711929797394622343, guid: bec6cece0b2c26140adbef23f4bdb85b, type: 3}
+      propertyPath: Scenename
+      value: GameOver_Cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711929797394622343, guid: bec6cece0b2c26140adbef23f4bdb85b, type: 3}
       propertyPath: FadeManager
       value: 
       objectReference: {fileID: 202325752}
