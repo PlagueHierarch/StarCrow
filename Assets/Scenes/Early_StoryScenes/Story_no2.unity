@@ -306,11 +306,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PageManager: {fileID: 416374754}
   UsingTimer: 0
-  UsingOptions: 0
-  Options: {fileID: 0}
   ProceedButton: {fileID: 0}
   dialogTime: 10
-  laterDialogtime: 0
+  Story1: {fileID: 0}
+  Story2: {fileID: 0}
+  vid: {fileID: 0}
 --- !u!4 &294397724
 Transform:
   m_ObjectHideFlags: 0
@@ -1672,7 +1672,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2360,7 +2360,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

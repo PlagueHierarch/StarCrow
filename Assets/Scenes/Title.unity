@@ -474,7 +474,7 @@ RectTransform:
   m_GameObject: {fileID: 577912637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 507015969}
@@ -483,7 +483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: -230}
+  m_AnchoredPosition: {x: 790, y: 376}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &577912639
@@ -928,7 +928,7 @@ RectTransform:
   m_GameObject: {fileID: 1232529296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 700225326}
@@ -937,7 +937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: -140}
+  m_AnchoredPosition: {x: 790, y: 472}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1232529298
@@ -1076,11 +1076,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1325824918881760035, guid: cc697b6a3b8cf244f90aeb7057a1ac8c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1249
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1325824918881760035, guid: cc697b6a3b8cf244f90aeb7057a1ac8c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -646
+      value: -0.00012207
       objectReference: {fileID: 0}
     - target: {fileID: 1325824918881760035, guid: cc697b6a3b8cf244f90aeb7057a1ac8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1112,11 +1112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1325824918881760035, guid: cc697b6a3b8cf244f90aeb7057a1ac8c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -624.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1325824918881760035, guid: cc697b6a3b8cf244f90aeb7057a1ac8c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -323
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1325824918881760035, guid: cc697b6a3b8cf244f90aeb7057a1ac8c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1132,7 +1132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5792925474343967002, guid: cc697b6a3b8cf244f90aeb7057a1ac8c, type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5792925474343967002, guid: cc697b6a3b8cf244f90aeb7057a1ac8c, type: 3}
       propertyPath: m_Interactable
@@ -1615,6 +1615,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e192b41a0a72444a9c7a248e64a0812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1677020499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1677020500}
+  m_Layer: 0
+  m_Name: placeholder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1677020500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677020499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.86030686, y: -0.34177136, z: 2076.5454}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1816945519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,8 +1677,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PageManager: {fileID: 1559147694}
   UsingTimer: 0
-  ProceedButton: {fileID: 0}
+  ProceedButton: {fileID: 1677020499}
   dialogTime: 0
+  Story1: {fileID: 0}
+  Story2: {fileID: 0}
+  vid: {fileID: 0}
 --- !u!4 &1816945521
 Transform:
   m_ObjectHideFlags: 0
