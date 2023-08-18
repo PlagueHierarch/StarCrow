@@ -489,7 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15e38416b875044b8c8c4cd19951c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PageManager: {fileID: 0}
   UsingTimer: 1
   ProceedButton: {fileID: 550863209}
   dialogTime: 0
@@ -4053,10 +4052,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8760566409435304032, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2417475812093375536}
   m_SourcePrefab: {fileID: 100100000, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
 --- !u!225 &2417475812093375533 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 8307836271822909036, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
   m_PrefabInstance: {fileID: 2417475812093375532}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2417475812093375534 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8247835619239773899, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+  m_PrefabInstance: {fileID: 2417475812093375532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417475812093375535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e192b41a0a72444a9c7a248e64a0812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2417475812093375535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8760566409435304032, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+  m_PrefabInstance: {fileID: 2417475812093375532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2417475812093375536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417475812093375535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81de825c849ec464d8d609118e4ae7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SettingPageManager: {fileID: 2417475812093375534}

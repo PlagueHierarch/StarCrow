@@ -37,16 +37,6 @@ public class SettingPageManager : MonoBehaviour
         GammaControl();
     }
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.P) && GamePaused == false )
-        {
-            //Debug.Log("paused");
-            Time.timeScale = 0f;
-            OpenSettingPage();
-            GamePaused = true;
-        }
-    }
     public void OpenSettingPage()
     {
         if (TimerManager.isStop == false)

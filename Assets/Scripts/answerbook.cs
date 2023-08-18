@@ -8,13 +8,17 @@ public class answerbook : MonoBehaviour
     public CanvasGroup answerBookGroup;
     private void OnMouseDown()
     {
-        BookSwitch.BookOn = true;
-        answerBookGroup.alpha = 1;
+        if(SettingPageManager.GamePaused == false && BookSwitch.BookOn == false)
+        {
+            BookSwitch.BookOn = true;
+            answerBookGroup.alpha = 1;
+        }
+        
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape) && SettingPageManager.GamePaused == false)
+        if (Input.GetKey(KeyCode.Escape))
         {
             answerBookGroup.alpha = 0;
             BookSwitch.BookOn = false;

@@ -7,8 +7,7 @@ using UnityEngine.Windows.WebCam;
 
 public class StoryFlowManager : MonoBehaviour
 {
-    public SettingPageManager PageManager;
-    
+   
     public bool UsingTimer = false;
     public GameObject ProceedButton = null;
     
@@ -31,14 +30,6 @@ public class StoryFlowManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "DoorOpen")
         {
             StartCoroutine(SceneDoorOpen());
-        }
-    }
-    private void Update()
-    {
-        if (UsingTimer == false && PageManager.TimerManager.isStop == false)
-        {
-            PageManager.TimerManager.isStop = true;
-            PageManager.TimerManager.curTime = 1800f;
         }
     }
     IEnumerator StoryWaitingTime()
