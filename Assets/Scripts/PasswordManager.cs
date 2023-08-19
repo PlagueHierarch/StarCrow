@@ -64,6 +64,7 @@ public class PasswordManager : MonoBehaviour
 
     private void right()
     {
+        savepassword.answer = null;
         StartCoroutine(TimerManager.timerStop());
         StartCoroutine(DoorOpen.ChangeScene(DoorOpen.Scenename));
     }

@@ -38,8 +38,8 @@ public class NoiseManagement : MonoBehaviour
         audioSource_crow.Play();
         yield return new WaitForSeconds(WaitingTime_Crow);
         //Cat.SetActive(true);
-        if (Noise <= 3) audioSource_cat.clip = ad[Random.Range(0, 1)];
-        else audioSource_cat.clip = ad[Random.Range(2, 6)];
+        if (Noise <= 3) audioSource_cat.clip = ad[Random.Range(2, 7)];
+        else audioSource_cat.clip = ad[Random.Range(0, 2)];
         audioSource_cat.Play();
         yield return new WaitForSeconds(WaitingTime_Cat);
         //Cat.SetActive(false);
@@ -49,6 +49,7 @@ public class NoiseManagement : MonoBehaviour
     private IEnumerator GameOverCat()
     {
         yield return new WaitForSeconds(3f);
+        savepassword.answer = null;
         StartCoroutine(TimerManager.timerStop());
         StartCoroutine(GameOver_Cat.ChangeScene(GameOver_Cat.Scenename));
     }
