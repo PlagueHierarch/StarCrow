@@ -715,6 +715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scenename: 
   FadeManager: {fileID: 1064071730}
+  SettingPageManager: {fileID: 0}
 --- !u!1 &991696735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1887,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 086256f45821eab48aacae7a5ba10287, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ef9241233a52cc4bb039782ba7abdd1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1906,7 +1907,7 @@ Transform:
   m_GameObject: {fileID: 1654154556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.03, y: -0.06, z: 0}
-  m_LocalScale: {x: 1.3884025, y: 1.3884025, z: 1.3884025}
+  m_LocalScale: {x: 1, y: 1, z: 1.3884025}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
