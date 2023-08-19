@@ -10,7 +10,7 @@ public class Fadeinout : MonoBehaviour
     public float fadeouttime;
     public float fadeintime;
 
-    private bool fadein;
+    public bool fadein;
 
     private void Start()
     {
