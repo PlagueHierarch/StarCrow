@@ -25,6 +25,7 @@ public class mouseClick : MonoBehaviour
         {
             if(SpeechBubbleShow.bubbleOn == false && BookSwitch.BookOn == false && SettingPageManager.GamePaused == false)
             {
+                PlayerPrefs.SetInt("mouseClick", clickCount);
                 bubbleShow.dialoguepos = dialoguepos;
                 bubbleShow.obj = 4;
                 bubbleShow.scriptNo = 0;

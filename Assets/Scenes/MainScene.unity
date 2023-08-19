@@ -1118,7 +1118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &550863210
 Transform:
   m_ObjectHideFlags: 0
@@ -4483,7 +4483,7 @@ MonoBehaviour:
   dialoguepos: {fileID: 1495806900}
   DialogueManager: {fileID: 672915145}
   obj: 3
-  scriptNo: 4
+  scriptNo: 1
   dialogue: 
 --- !u!60 &2101365808
 PolygonCollider2D:
