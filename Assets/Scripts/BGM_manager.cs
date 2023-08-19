@@ -37,7 +37,6 @@ public class BGM_manager : MonoBehaviour
         if (BGM.clip != BGM_Compare.clip)
         {
             BGM.Stop();
-            Debug.Log("Changing");
             BGM.clip = BGM_Compare.clip;
             BGM.volume = BGM_Compare.volume;
             BGM.Play();
