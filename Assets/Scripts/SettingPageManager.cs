@@ -14,7 +14,7 @@ public static class UserSettingSave
     public static float audio_Music = 1;
     public static FullScreenMode StFullscreenM;
     public static int StResolutionNum;
-    public static bool isFull;
+    public static bool isFull = true;
 }
 public class SettingPageManager : MonoBehaviour
 {
@@ -117,15 +117,14 @@ public class SettingPageManager : MonoBehaviour
         }
         DropdownResolution.RefreshShownValue();
 
-        FullscreenToggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow)?true:false;
+        FullscreenToggle.isOn = UserSettingSave.isFull;
     }
 
     public void FullScToggle()
     {
-        bool Fullsc = UserSettingSave.isFull;
+        UserSettingSave.isFull = FullscreenToggle.isOn;
         fullscreenM = UserSettingSave.isFull?FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
         Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullscreenM, resolutions[resolutionNum].refreshRateRatio);
-        UserSettingSave.isFull = !Fullsc;
         Debug.Log(UserSettingSave.isFull);
     }
 
