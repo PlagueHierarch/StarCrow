@@ -10,9 +10,10 @@ public class NoiseManagement : MonoBehaviour
     AudioSource audioSource_cat;
     public AudioClip[] ad;
     AudioSource audioSource_crow;
-    public float WaitingTime_Crow = 1.0f;
+    public float WaitingTime_Crow = 0.6f;
     public float WaitingTime_Cat = 4.0f;
     public TimerManager TimerManager;
+    public CatClick catClick;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class NoiseManagement : MonoBehaviour
 
     public IEnumerator Warning()
     {
+        catClick.spriteRenderer.sprite = catClick.cat2;
         audioSource_crow.Play();
         yield return new WaitForSeconds(WaitingTime_Crow);
         //Cat.SetActive(true);
@@ -42,6 +44,7 @@ public class NoiseManagement : MonoBehaviour
         else audioSource_cat.clip = ad[Random.Range(0, 2)];
         audioSource_cat.Play();
         yield return new WaitForSeconds(WaitingTime_Cat);
+        catClick.spriteRenderer.sprite = catClick.cat1;
         //Cat.SetActive(false);
         yield return null;
     }

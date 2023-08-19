@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CatClick : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     AudioSource audioSource;
     public Sprite cat1;
     public Sprite cat2;

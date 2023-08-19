@@ -21,6 +21,7 @@ public class PasswordManager : MonoBehaviour
     public int hisscounter;
     public GameObject dialogueManager;
     public SpeechBubbleShow bubbleshow;
+    public MagicFail magicFail;
 
     private bool wrongAnswer;
 
@@ -54,7 +55,9 @@ public class PasswordManager : MonoBehaviour
     private IEnumerator wrong()
     {
         wrongAnswer = true;
+        magicFail.Failed();
         noiseObject.AddNoise();
+        yield return new WaitForSeconds(noiseObject.WaitingTime_Crow);
         bubbleshow.scriptNo = hisscounter;
         Debug.Log(savepassword.answer);
         yield return StartCoroutine(bubbleshow.Bubble());
