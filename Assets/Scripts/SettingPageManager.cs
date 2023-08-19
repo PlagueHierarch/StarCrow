@@ -22,16 +22,17 @@ public class SettingPageManager : MonoBehaviour
     public Slider GammaSlider;
     public Slider MusicSlider;
     public CanvasGroup GammaImage;
-    public Button LightOn;
-    public Button LightOff;
 
     public static bool GamePaused = false;
 
     void Start()
     {
         SettingPage.SetActive(false);
+        Debug.Log(UserSettingSave.audio_Sfx);
         LoadSavedSetting();
-        AudioControl();
+        AudioControl_SFX();
+        AudioControl_Music();
+        AudioControl_Main();
         GammaControl();
     }
 
@@ -44,10 +45,7 @@ public class SettingPageManager : MonoBehaviour
         SettingPage.SetActive(true);
         
     }
-    public void CheckLightButtonOnOff()
-    {
-
-    }
+    
     public float Lerp(float volmin, float volmax, float slidervalue)
     {
         float volume = volmin + (volmax - volmin) * slidervalue;
@@ -61,18 +59,23 @@ public class SettingPageManager : MonoBehaviour
         MusicSlider.value = UserSettingSave.audio_Music;
         GammaSlider.value = UserSettingSave.gamma;
     }
-    public void AudioControl()
+    public void AudioControl_Main()
     {
         UserSettingSave.audio_Main = MasterSlider.value;
         MasterVolume.SetFloat("Volume_Main", Lerp(-20, 10, MasterSlider.value));
-
+    }
+    public void AudioControl_SFX()
+    {
         UserSettingSave.audio_Sfx = SFXSlider.value;
         MasterVolume.SetFloat("Volume_SFX", Lerp(-20, 10, SFXSlider.value));
-
+        Debug.Log(UserSettingSave.audio_Sfx);
+    }
+    public void AudioControl_Music()
+    {
         UserSettingSave.audio_Music = MusicSlider.value;
         MasterVolume.SetFloat("Volume_Music", Lerp(-20, 10, MusicSlider.value));
-    }
 
+    }
     public void GammaControl()
     {
         UserSettingSave.gamma = GammaSlider.value;
@@ -89,5 +92,6 @@ public class SettingPageManager : MonoBehaviour
     public void QuitGame ()//에디터에선 작동 안됨(빌드 프로그램에선 정상 작동)
     {
         Application.Quit();
+        Debug.Log("Quit");
     }
 }

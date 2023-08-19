@@ -543,7 +543,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6751251495561263180}
         m_TargetAssemblyTypeName: SettingPageManager, Assembly-CSharp
-        m_MethodName: AudioControl
+        m_MethodName: AudioControl_Main
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -684,7 +684,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6751251495561263180}
         m_TargetAssemblyTypeName: SettingPageManager, Assembly-CSharp
-        m_MethodName: AudioControl
+        m_MethodName: AudioControl_Music
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1363,7 +1363,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6751251495561263180}
         m_TargetAssemblyTypeName: SettingPageManager, Assembly-CSharp
-        m_MethodName: AudioControl
+        m_MethodName: AudioControl_SFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
