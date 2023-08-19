@@ -491,6 +491,8 @@ MonoBehaviour:
   dialogTime: 0
   Story1: {fileID: 0}
   Story2: {fileID: 0}
+  Story3: {fileID: 0}
+  Story4: {fileID: 0}
   vid: {fileID: 0}
 --- !u!4 &856000736
 Transform:
@@ -947,8 +949,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 98f817a241ed2cb4da77864a1b73c977, type: 3}
-    m_FontSize: 20
+    m_Font: {fileID: 12800000, guid: 40582f65b5742dc47a2f7b85004ac089, type: 3}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
