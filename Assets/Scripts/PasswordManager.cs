@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,6 @@ public class PasswordManager : MonoBehaviour
     public SceneMove DoorOpen;
     public TimerManager TimerManager;
 
-    public int hisscounter;
     public GameObject dialogueManager;
     public SpeechBubbleShow bubbleshow;
     public MagicFail magicFail;
@@ -29,7 +29,6 @@ public class PasswordManager : MonoBehaviour
     {
         answersubmitter.text = savepassword.answer;
         bubbleshow = dialogueManager.GetComponent<SpeechBubbleShow>();
-        hisscounter = 0;
         wrongAnswer = false;
     }
 
@@ -58,16 +57,16 @@ public class PasswordManager : MonoBehaviour
         magicFail.Failed();
         noiseObject.AddNoise();
         yield return new WaitForSeconds(noiseObject.WaitingTime_Crow);
-        bubbleshow.scriptNo = hisscounter;
+        bubbleshow.scriptNo = noiseObject.Noise-1;
         Debug.Log(savepassword.answer);
         yield return StartCoroutine(bubbleshow.Bubble());
-        hisscounter++;
         wrongAnswer = false;
     }
 
     private void right()
     {
         savepassword.answer = null;
+        PlayerPrefs.DeleteAll();
         StartCoroutine(TimerManager.timerStop());
         StartCoroutine(DoorOpen.ChangeScene(DoorOpen.Scenename));
     }

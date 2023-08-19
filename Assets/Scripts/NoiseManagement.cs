@@ -25,11 +25,12 @@ public class NoiseManagement : MonoBehaviour
     {
         //Cat.SetActive(false);
     }
-    private int Noise = 0;
+    public int Noise = 0;
     
     public void AddNoise()
     {
         Noise++;
+        PlayerPrefs.SetInt("catCounter", Noise);
         if (Noise < 5) StartCoroutine(Warning());
         else StartCoroutine(GameOverCat());
     }
@@ -40,7 +41,7 @@ public class NoiseManagement : MonoBehaviour
         audioSource_crow.Play();
         yield return new WaitForSeconds(WaitingTime_Crow);
         //Cat.SetActive(true);
-        if (Noise <= 3) audioSource_cat.clip = ad[Random.Range(2, 7)];
+        if (Noise <= 3) audioSource_cat.clip = ad[Random.Range(2, 5)];
         else audioSource_cat.clip = ad[Random.Range(0, 2)];
         audioSource_cat.Play();
         yield return new WaitForSeconds(WaitingTime_Cat);
@@ -53,6 +54,7 @@ public class NoiseManagement : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         savepassword.answer = null;
+        PlayerPrefs.DeleteAll();
         StartCoroutine(TimerManager.timerStop());
         StartCoroutine(GameOver_Cat.ChangeScene(GameOver_Cat.Scenename));
     }

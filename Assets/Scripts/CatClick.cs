@@ -11,7 +11,7 @@ public class CatClick : MonoBehaviour
     public AudioClip cathiss;
 
     public GameObject dialogueManager;
-    public GameObject passwordManager;
+    public NoiseManagement noiseManager;
     public GameObject dialoguepos;
     public GameObject dialoguepos2;
     SpeechBubbleShow speechbubble;
@@ -47,11 +47,6 @@ public class CatClick : MonoBehaviour
             StartCoroutine(changesprite());
         }
 
-    }
-
-    public void Update()
-    {
-        speechbubble.scriptNo = passwordManager.GetComponent<PasswordManager>().hisscounter;
     }
 
     private IEnumerator changesprite()

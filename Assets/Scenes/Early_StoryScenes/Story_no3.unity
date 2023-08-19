@@ -864,7 +864,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &904170310
 RectTransform:
@@ -1430,11 +1430,6 @@ MonoBehaviour:
   UsingTimer: 0
   ProceedButton: {fileID: 972212481}
   dialogTime: 10
-  Story1: {fileID: 0}
-  Story2: {fileID: 0}
-  Story3: {fileID: 0}
-  Story4: {fileID: 0}
-  vid: {fileID: 0}
 --- !u!1001 &1696294227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1588,6 +1583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scenename: Title
   FadeManager: {fileID: 45188300}
+  SettingPageManager: {fileID: 0}
 --- !u!4 &1889271863
 Transform:
   m_ObjectHideFlags: 0
