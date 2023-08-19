@@ -277,7 +277,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1802146408}
         m_TargetAssemblyTypeName: SettingPageManager, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -1432,6 +1432,8 @@ MonoBehaviour:
   dialogTime: 10
   Story1: {fileID: 0}
   Story2: {fileID: 0}
+  Story3: {fileID: 0}
+  Story4: {fileID: 0}
   vid: {fileID: 0}
 --- !u!1001 &1696294227
 PrefabInstance:
@@ -1544,6 +1546,17 @@ CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 3513924175653782772, guid: eb96a3dd6fa1ba1469ddb4c070c01ef2, type: 3}
   m_PrefabInstance: {fileID: 1696294227}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1802146408 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6751251495561263180, guid: bbf23d5eaf70d0749b966ccaa5e381ea, type: 3}
+  m_PrefabInstance: {fileID: 503043634}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e192b41a0a72444a9c7a248e64a0812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1889271861
 GameObject:
   m_ObjectHideFlags: 0
