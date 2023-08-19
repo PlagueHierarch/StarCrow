@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -22,6 +23,11 @@ public class SettingPageManager : MonoBehaviour
     public Slider GammaSlider;
     public Slider MusicSlider;
     public CanvasGroup GammaImage;
+    public Dropdown DropdownResolution;
+    public Toggle FullscreenToggle;
+    List<Resolution>resolutions = new List<Resolution>();
+    int resolutionNum;
+    FullScreenMode fullscreenM;
 
     public static bool GamePaused = false;
 
@@ -34,6 +40,7 @@ public class SettingPageManager : MonoBehaviour
         AudioControl_Music();
         AudioControl_Main();
         GammaControl();
+        ResOption();
     }
 
     public void OpenSettingPage()
@@ -93,5 +100,36 @@ public class SettingPageManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit");
+    }
+
+    void ResOption()
+    {
+        resolutions.AddRange(Screen.resolutions);
+        DropdownResolution.options.Clear();
+        int optionNum = 0;
+        foreach (Resolution item in resolutions)
+        {
+            Dropdown.OptionData option = new Dropdown.OptionData();
+            option.text = item.width + "x" + item.height;
+            DropdownResolution.options.Add(option);
+
+            if (item.width == Screen.width && item.height == Screen.height) DropdownResolution.value = optionNum;
+            optionNum++;
+        }
+        DropdownResolution.RefreshShownValue();
+
+        FullscreenToggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow)?true:false;
+    }
+
+    public void FullScToggle(bool isFull)
+    {
+        fullscreenM = isFull?FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+        Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullscreenM);
+    }
+
+    public void DropboxOptionChange(int x)
+    {
+        resolutionNum = x;
+        Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullscreenM);
     }
 }
