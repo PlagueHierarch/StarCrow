@@ -354,7 +354,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 184057236533467325}
   m_HandleRect: {fileID: 8855601153998329480}
   m_Direction: 0
-  m_MinValue: 0.2
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -543,7 +543,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6751251495561263180}
         m_TargetAssemblyTypeName: SettingPageManager, Assembly-CSharp
-        m_MethodName: AudioControl
+        m_MethodName: AudioControl_Main
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -684,7 +684,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6751251495561263180}
         m_TargetAssemblyTypeName: SettingPageManager, Assembly-CSharp
-        m_MethodName: AudioControl
+        m_MethodName: AudioControl_Music
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1363,7 +1363,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6751251495561263180}
         m_TargetAssemblyTypeName: SettingPageManager, Assembly-CSharp
-        m_MethodName: AudioControl
+        m_MethodName: AudioControl_SFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1480,7 +1480,7 @@ Transform:
   m_Children:
   - {fileID: 1508229854847743494}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6751251495561263180
 MonoBehaviour:
@@ -2121,6 +2121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingPage_GameOffB
       objectReference: {fileID: 0}
+    - target: {fileID: 9161751273342911157, guid: 2f62fde85025a064dad9e96c6e1df1cb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6751251495561263180}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

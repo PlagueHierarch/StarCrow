@@ -41,7 +41,7 @@ public class PasswordManager : MonoBehaviour
     {
         if (wrongAnswer == false && SpeechBubbleShow.bubbleOn == false)
         {
-            if (savepassword.answer != password && savepassword.answer != "") StartCoroutine(wrong());
+            if (savepassword.answer != password && savepassword.answer != null) StartCoroutine(wrong());
 
             else if (savepassword.answer == password) right();
         }
@@ -64,6 +64,7 @@ public class PasswordManager : MonoBehaviour
 
     private void right()
     {
+        savepassword.answer = null;
         StartCoroutine(TimerManager.timerStop());
         StartCoroutine(DoorOpen.ChangeScene(DoorOpen.Scenename));
     }

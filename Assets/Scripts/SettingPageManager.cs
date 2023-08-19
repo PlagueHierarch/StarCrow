@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -11,8 +12,6 @@ public static class UserSettingSave
     public static float audio_Main = 1;
     public static float audio_Sfx = 1;
     public static float audio_Music = 1;
-    public static float gamma_temp = 0.2f;
-    public static bool isLightOn = true;
 }
 public class SettingPageManager : MonoBehaviour
 {
@@ -24,17 +23,24 @@ public class SettingPageManager : MonoBehaviour
     public Slider GammaSlider;
     public Slider MusicSlider;
     public CanvasGroup GammaImage;
-    public Button LightOn;
-    public Button LightOff;
+    public Dropdown DropdownResolution;
+    public Toggle FullscreenToggle;
+    List<Resolution>resolutions = new List<Resolution>();
+    int resolutionNum;
+    FullScreenMode fullscreenM;
 
     public static bool GamePaused = false;
 
     void Start()
     {
         SettingPage.SetActive(false);
+        Debug.Log(UserSettingSave.audio_Sfx);
         LoadSavedSetting();
-        AudioControl();
+        AudioControl_SFX();
+        AudioControl_Music();
+        AudioControl_Main();
         GammaControl();
+        ResOption();
     }
 
     public void OpenSettingPage()
@@ -46,10 +52,7 @@ public class SettingPageManager : MonoBehaviour
         SettingPage.SetActive(true);
         
     }
-    public void CheckLightButtonOnOff()
-    {
-
-    }
+    
     public float Lerp(float volmin, float volmax, float slidervalue)
     {
         float volume = volmin + (volmax - volmin) * slidervalue;
@@ -63,38 +66,29 @@ public class SettingPageManager : MonoBehaviour
         MusicSlider.value = UserSettingSave.audio_Music;
         GammaSlider.value = UserSettingSave.gamma;
     }
-    public void AudioControl()
+    public void AudioControl_Main()
     {
         UserSettingSave.audio_Main = MasterSlider.value;
         MasterVolume.SetFloat("Volume_Main", Lerp(-20, 10, MasterSlider.value));
-
+    }
+    public void AudioControl_SFX()
+    {
         UserSettingSave.audio_Sfx = SFXSlider.value;
         MasterVolume.SetFloat("Volume_SFX", Lerp(-20, 10, SFXSlider.value));
-
+        Debug.Log(UserSettingSave.audio_Sfx);
+    }
+    public void AudioControl_Music()
+    {
         UserSettingSave.audio_Music = MusicSlider.value;
         MasterVolume.SetFloat("Volume_Music", Lerp(-20, 10, MusicSlider.value));
-    }
 
+    }
     public void GammaControl()
     {
         UserSettingSave.gamma = GammaSlider.value;
-        if (UserSettingSave.isLightOn == false)
-        {
-            GammaImage.alpha = 1 - UserSettingSave.gamma + UserSettingSave.gamma_temp;
-        }
-        else GammaImage.alpha = 1 - UserSettingSave.gamma;
+        GammaImage.alpha = 1 - UserSettingSave.gamma;
     }
 
-    public void lightOn()
-    {
-        UserSettingSave.isLightOn = true;
-        GammaControl();
-    }
-    public void lightOff()
-    {
-        UserSettingSave.isLightOn = false;
-        GammaControl();
-    }
     public void SettingPageOff() //세팅 페이지의 나가기 버튼에 할당
     {
         Time.timeScale = 1f;
@@ -105,5 +99,37 @@ public class SettingPageManager : MonoBehaviour
     public void QuitGame ()//에디터에선 작동 안됨(빌드 프로그램에선 정상 작동)
     {
         Application.Quit();
+        Debug.Log("Quit");
+    }
+
+    void ResOption()
+    {
+        resolutions.AddRange(Screen.resolutions);
+        DropdownResolution.options.Clear();
+        int optionNum = 0;
+        foreach (Resolution item in resolutions)
+        {
+            Dropdown.OptionData option = new Dropdown.OptionData();
+            option.text = item.width + "x" + item.height;
+            DropdownResolution.options.Add(option);
+
+            if (item.width == Screen.width && item.height == Screen.height) DropdownResolution.value = optionNum;
+            optionNum++;
+        }
+        DropdownResolution.RefreshShownValue();
+
+        FullscreenToggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow)?true:false;
+    }
+
+    public void FullScToggle(bool isFull)
+    {
+        fullscreenM = isFull?FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+        Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullscreenM);
+    }
+
+    public void DropboxOptionChange(int x)
+    {
+        resolutionNum = x;
+        Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullscreenM);
     }
 }
