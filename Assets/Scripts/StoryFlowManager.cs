@@ -10,10 +10,12 @@ public class StoryFlowManager : MonoBehaviour
    
     public bool UsingTimer = false;
     public GameObject ProceedButton = null;
+    public GameObject nextScene;
     
     public float dialogTime = 0f;//진행 버튼이 나오기까지의 시간
     private void Awake()
-    { 
+    {
+        nextScene.GetComponent<BoxCollider2D>().enabled = false;
         ProceedButton.SetActive(false);
     }
     private void Start()
@@ -23,6 +25,7 @@ public class StoryFlowManager : MonoBehaviour
     IEnumerator StoryWaitingTime()
     {
         yield return new WaitForSeconds(dialogTime);
+        nextScene.GetComponent<BoxCollider2D>().enabled = true;
         ProceedButton.SetActive(true);
     }
 
