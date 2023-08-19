@@ -46,10 +46,11 @@ public class PasswordManager : MonoBehaviour
             else if (savepassword.answer == password) right();
         }
 
-        /*if (savepassword.answer == "0000") //빌드 전 삭제
+        if (savepassword.answer == "1210") //빌드 전 삭제
         {
-            TimerManager.curTime = 10;
-        }*/
+            TimerManager.curTime = 1210;
+        }
+        else if (savepassword.answer == "0610") TimerManager.curTime = 610;
     }
     private IEnumerator wrong()
     {

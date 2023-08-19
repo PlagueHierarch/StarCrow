@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scenename: GameOver_Timer
   FadeManager: {fileID: 0}
+  SettingPageManager: {fileID: 0}
 --- !u!82 &-7902561072164923564
 AudioSource:
   m_ObjectHideFlags: 0
@@ -76,10 +77,10 @@ AudioSource:
   m_GameObject: {fileID: 6581736674521058479}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  OutputAudioMixerGroup: {fileID: 3866677187237786879, guid: f11453ab1a56c4245af969c80c6ea1e6, type: 2}
+  m_audioClip: {fileID: 8300000, guid: e6a77809cc56a994badb70b7e0e956af, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -178,9 +179,11 @@ MonoBehaviour:
   SpeechBubble: {fileID: 3406748149125228711, guid: b72304049e709bb4b8ef4558fc329523, type: 3}
   textmesh: {fileID: 0}
   canvasGroup: {fileID: 0}
-  dialogue: warning
   fadetime: 1
   onTime: 3
-  offset: {x: 7.5, y: 1.5, z: 0}
-  Dialogue: {fileID: 4900000, guid: 730b944c4cb7f3c4b8368540dac80aed, type: 3}
-  objname: 
+  fontSize: 0
+  dialoguepos: {fileID: 0}
+  DialogueManager: {fileID: 0}
+  obj: 0
+  scriptNo: 0
+  dialogue: warning

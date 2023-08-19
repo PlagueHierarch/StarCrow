@@ -2500,6 +2500,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f05fef336b58116479c09d8102dc5f9c, type: 3}
   - {fileID: 8300000, guid: 3fa05aab6720dc84eb055973427eba52, type: 3}
   - {fileID: 8300000, guid: da70e03edd30e234182da6deb26fa596, type: 3}
+  audioSource_crow: {fileID: 1285184818}
   WaitingTime_Crow: 1.5
   WaitingTime_Cat: 3
   TimerManager: {fileID: 1415805522}
@@ -2675,6 +2676,10 @@ PrefabInstance:
       propertyPath: DialogueManager
       value: 
       objectReference: {fileID: 672915145}
+    - target: {fileID: 4477622256744132999, guid: bec6cece0b2c26140adbef23f4bdb85b, type: 3}
+      propertyPath: noise
+      value: 
+      objectReference: {fileID: 1285184819}
     - target: {fileID: 4477622256744132999, guid: bec6cece0b2c26140adbef23f4bdb85b, type: 3}
       propertyPath: warning1
       value: 1200

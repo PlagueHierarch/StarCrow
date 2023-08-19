@@ -16,7 +16,7 @@ public class TimerManager : MonoBehaviour
     public float curTime; //빌드 전에 private로 만들기
     public int warning1 = 1200;
     public int warning2 = 600;
-
+    public NoiseManagement noise;
     void Start()
     {
         StartCoroutine(timerStart());
@@ -49,7 +49,9 @@ public class TimerManager : MonoBehaviour
                 StartCoroutine(gameObject.GetComponent<SpeechBubbleShow>().Bubble());
                 gameObject.GetComponent<SpeechBubbleShow>().scriptNo++;
                 //Debug.Log("warning");
+                noise.audioSource_crow.Play();
                 yield return new WaitForSeconds(1);
+                audiosource_Warning.Play();
             }
             if ((int)curTime == 0)
             {
