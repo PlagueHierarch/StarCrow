@@ -9,9 +9,14 @@ public class ShowBook : MonoBehaviour
     public float[] coverColor = new float[3];
     public SpriteRenderer bookRenderer;
     AudioSource audioSource;
+    public SpriteRenderer PageRenderer;
 
     public Sprite[] pages;
     public int maxPage;
+    public int sortingOrder;
+
+    public PageTurner pageTurner;
+    public int bookNo;
 
     private void Awake()
     {
@@ -34,6 +39,10 @@ public class ShowBook : MonoBehaviour
         book.GetComponent<PageTurner>().pages = pages;
         book.GetComponent<PageTurner>().maxPage = maxPage;
         bookRenderer = book.transform.Find("BookCover").GetComponent<SpriteRenderer>();
+        PageRenderer = book.transform.Find("Page").GetComponent<SpriteRenderer>();
+        pageTurner = book.GetComponent<PageTurner>();
+        pageTurner.BookNo = bookNo;
+        PageRenderer.sortingOrder = sortingOrder;
         bookRenderer.material.color = new Color(coverColor[0]/255f, coverColor[1]/255f, coverColor[2]/255f);
         yield return new WaitForSeconds(1f);
         //book.GetComponent<BookManager>().bookEnabled = true;

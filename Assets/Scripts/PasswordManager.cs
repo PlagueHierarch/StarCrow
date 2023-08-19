@@ -23,7 +23,7 @@ public class PasswordManager : MonoBehaviour
     public SpeechBubbleShow bubbleshow;
     public MagicFail magicFail;
 
-    private bool wrongAnswer;
+    public bool wrongAnswer;
 
     private void Start()
     {
@@ -55,7 +55,6 @@ public class PasswordManager : MonoBehaviour
     private IEnumerator wrong()
     {
         wrongAnswer = true;
-        magicFail.Failed();
         noiseObject.AddNoise();
         yield return new WaitForSeconds(noiseObject.WaitingTime_Crow);
         bubbleshow.scriptNo = noiseObject.Noise-1;

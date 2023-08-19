@@ -273,9 +273,13 @@ MonoBehaviour:
   - 114
   - 0
   bookRenderer: {fileID: 2734305916834915178, guid: 261e7e91db5dbd2469d9f9b3bce80920, type: 3}
+  PageRenderer: {fileID: 0}
   pages:
   - {fileID: 21300000, guid: d5ef794c08564674b8dcaff4244335e5, type: 3}
   maxPage: 0
+  sortingOrder: 4
+  pageTurner: {fileID: 0}
+  bookNo: 3
 --- !u!82 &24838732
 AudioSource:
   m_ObjectHideFlags: 0
@@ -434,15 +438,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1407808204816108194, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1407808204816108194, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1407808204816108194, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1428284125410927307, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_Name
@@ -450,23 +454,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3044522248575452366, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3044522248575452366, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3044522248575452366, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201804043310252722, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263586528503522874, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3263586528503522874, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3323921484596394663, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_Camera
@@ -478,51 +486,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3665769636369704366, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3665769636369704366, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4162794542041648181, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4162794542041648181, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4162794542041648181, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5139355814976934262, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5139355814976934262, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6134496327629088783, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6134496327629088783, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6134496327629088783, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6724480569755933600, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6724480569755933600, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6872668984227005008, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_Pivot.x
@@ -1728,9 +1736,13 @@ MonoBehaviour:
   - 0
   - 21
   bookRenderer: {fileID: 2734305916834915178, guid: 261e7e91db5dbd2469d9f9b3bce80920, type: 3}
+  PageRenderer: {fileID: 0}
   pages:
   - {fileID: 21300000, guid: 48752ebda972b57478a0f059db327045, type: 3}
   maxPage: 0
+  sortingOrder: 4
+  pageTurner: {fileID: 0}
+  bookNo: 1
 --- !u!82 &1226787412
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2109,9 +2121,13 @@ MonoBehaviour:
   - 206
   - 254
   bookRenderer: {fileID: 2734305916834915178, guid: 261e7e91db5dbd2469d9f9b3bce80920, type: 3}
+  PageRenderer: {fileID: 0}
   pages:
   - {fileID: 21300000, guid: fb7a708bf4a4f9645a6f51b02b155643, type: 3}
   maxPage: 0
+  sortingOrder: 4
+  pageTurner: {fileID: 0}
+  bookNo: 4
 --- !u!82 &1283866972
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2700,6 +2716,8 @@ MonoBehaviour:
   WaitingTime_Crow: 1
   WaitingTime_Cat: 4
   TimerManager: {fileID: 1114663844}
+  catClick: {fileID: 0}
+  Noise: 0
 --- !u!4 &1625589440
 Transform:
   m_ObjectHideFlags: 0
@@ -3069,9 +3087,13 @@ MonoBehaviour:
   - 0
   - 249
   bookRenderer: {fileID: 2734305916834915178, guid: 261e7e91db5dbd2469d9f9b3bce80920, type: 3}
+  PageRenderer: {fileID: 0}
   pages:
   - {fileID: 21300000, guid: a7984a6130c2d9f4b906a171ee60e28d, type: 3}
   maxPage: 0
+  sortingOrder: 4
+  pageTurner: {fileID: 0}
+  bookNo: 2
 --- !u!82 &1824120939
 AudioSource:
   m_ObjectHideFlags: 0

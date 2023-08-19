@@ -7,12 +7,13 @@ public class answerbook : MonoBehaviour
     public GameObject answerBook;
     public CanvasGroup answerBookGroup;
     public AudioSource AudioSource;
-    bool answerBookOn = false;
+    public bool answerBookOn = false;
     private void OnMouseDown()
     {
         if(SettingPageManager.GamePaused == false && BookSwitch.BookOn == false)
         {
             BookSwitch.BookOn = true;
+            answerBookGroup.alpha = 1;
             answerBookOn = true;
             answerBook.SetActive(true);
         }

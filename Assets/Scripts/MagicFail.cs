@@ -8,6 +8,8 @@ public class MagicFail : MonoBehaviour
     public float flashSpeed = 5f;
     public CanvasGroup flashimage;
     public CanvasGroup answerBookGroup;
+    public GameObject answerBook;
+    public answerbook answerbook;
 
     public AudioSource audioSource;
     public void Failed()
@@ -15,6 +17,7 @@ public class MagicFail : MonoBehaviour
         audioSource.Play();
         StartCoroutine(Flashscreen());
         answerBookGroup.alpha = 0;
+        answerbook.answerBookOn = false;
         BookSwitch.BookOn = false;
     }
     public IEnumerator Flashscreen()

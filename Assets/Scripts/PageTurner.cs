@@ -24,7 +24,9 @@ public class PageTurner : MonoBehaviour
     public Sprite[] pages;
     public int maxPage;
     public int curPage = 0;
+    bool pagefind = false;
 
+    public int BookNo;
     private void Awake()
     {
         bookEnabled = true;
@@ -44,6 +46,13 @@ public class PageTurner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pagefind == false)
+        {
+            RightPage = GameObject.Find("RightPage");
+            LeftPage = GameObject.Find("LeftPage");
+            pagefind = true;
+        }
+       
         if (bookEnabled == true)
         {
             //ESC 입력 시 책 오브젝트 파괴

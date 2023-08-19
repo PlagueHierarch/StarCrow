@@ -16,6 +16,10 @@ public class NoiseManagement : MonoBehaviour
     public float WaitingTime_Cat = 4.0f;
     public TimerManager TimerManager;
     public CatClick catClick;
+    public MagicFail magicFail;
+    public GameObject answerbook;
+    public answerbook AnswerBookScript;
+    public PasswordManager passwordManager;
 
     private void Awake()
     {
@@ -33,6 +37,7 @@ public class NoiseManagement : MonoBehaviour
     {
         Noise++;
         PlayerPrefs.SetInt("catCounter", Noise);
+        magicFail.Failed();
         if (Noise < 5) StartCoroutine(Warning());
         else StartCoroutine(GameOverCat());
     }
@@ -43,17 +48,27 @@ public class NoiseManagement : MonoBehaviour
         audioSource_crow.Play();
         yield return new WaitForSeconds(WaitingTime_Crow);
         //Cat.SetActive(true);
-        if (Noise <= 3) audioSource_cat.clip = ad[Random.Range(2, 6)];
+        if (Noise <= 3) audioSource_cat.clip = ad[Random.Range(2, 5)];
         else audioSource_cat.clip = ad[Random.Range(0, 2)];
         audioSource_cat.Play();
         yield return new WaitForSeconds(WaitingTime_Cat);
         catClick.spriteRenderer.sprite = catClick.cat1;
         //Cat.SetActive(false);
-        yield return null;
+        while (passwordManager.wrongAnswer) yield return null;
+        AnswerBookScript.answerBookOn = false;
+        BookSwitch.BookOn = false;
+        answerbook.SetActive(false);
+
+
     }
 
     private IEnumerator GameOverCat()
     {
+        catClick.spriteRenderer.sprite = catClick.cat2;
+        audioSource_crow.Play();
+        yield return new WaitForSeconds(WaitingTime_Crow);
+        audioSource_cat.clip = ad[Random.Range(2, 5)];
+        audioSource_cat.Play();
         yield return new WaitForSeconds(3f);
         savepassword.answer = null;
         PlayerPrefs.DeleteAll();

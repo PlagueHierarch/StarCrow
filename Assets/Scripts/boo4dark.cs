@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,24 +33,23 @@ public class boo4dark : MonoBehaviour
     }
     void Update()
     {
-        if (gammaSlider.value < 0.02 && book4on == true)
+        if (gammaSlider.value < 0.5 && book4on == true)
         {
-            Debug.Log("Change sprite");
+            //Debug.Log("Change sprite");
+            Time.timeScale = 1f;
             showBook.pages[0] = darkPage;
-            PageRenderer.sortingOrder = 6;
-            GameObject oldbook = GameObject.Find("Book(Clone)");
-            Destroy(oldbook);
-            StartCoroutine(showBook.Bookinstant(showBook.book));
+            showBook.sortingOrder = 6;
+            if (BookSwitch.BookOn == true)
+            {
+                if (GameObject.FindGameObjectWithTag("Book").GetComponent<PageTurner>().BookNo == 4)
+                {
+                    Destroy(GameObject.FindGameObjectWithTag("Book"));
+                    StartCoroutine(showBook.Bookinstant(showBook.book));
+                }
+
+            }
             gameObject.GetComponent<boo4dark>().enabled = false;
 
-
-            /*if(BookSwitch.BookOn == true)
-            {
-                Debug.Log("Change sprite");
-                PageRenderer = showBook.book.transform.Find("Page").GetComponent<SpriteRenderer>();
-                Debug.Log(PageRenderer.sprite);
-                PageRenderer.sprite = darkPage;
-            }*/
         }
     }
 }
