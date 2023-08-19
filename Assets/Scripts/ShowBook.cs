@@ -27,7 +27,7 @@ public class ShowBook : MonoBehaviour
         
     }
 
-    private IEnumerator Bookinstant(GameObject book)
+    public IEnumerator Bookinstant(GameObject book)
     {
         audioSource.Play();
         book = Instantiate(book) as GameObject;

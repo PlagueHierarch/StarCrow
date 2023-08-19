@@ -53,6 +53,7 @@ MonoBehaviour:
   curTime: 0
   warning1: 1798
   warning2: 600
+  noise: {fileID: 0}
 --- !u!114 &7711929797394622343
 MonoBehaviour:
   m_ObjectHideFlags: 0
