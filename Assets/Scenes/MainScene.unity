@@ -494,6 +494,8 @@ MonoBehaviour:
   dialogTime: 0
   Story1: {fileID: 0}
   Story2: {fileID: 0}
+  Story3: {fileID: 0}
+  Story4: {fileID: 0}
   vid: {fileID: 0}
 --- !u!4 &405800866
 Transform:
