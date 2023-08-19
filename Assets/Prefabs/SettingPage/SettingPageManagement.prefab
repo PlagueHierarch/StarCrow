@@ -354,7 +354,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 184057236533467325}
   m_HandleRect: {fileID: 8855601153998329480}
   m_Direction: 0
-  m_MinValue: 0.2
+  m_MinValue: 0.01
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -1480,7 +1480,7 @@ Transform:
   m_Children:
   - {fileID: 1508229854847743494}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6751251495561263180
 MonoBehaviour:
@@ -1502,6 +1502,8 @@ MonoBehaviour:
   GammaSlider: {fileID: 5866372110514592427}
   MusicSlider: {fileID: 219574121159423579}
   GammaImage: {fileID: 3513924175653782772, guid: eb96a3dd6fa1ba1469ddb4c070c01ef2, type: 3}
+  LightOn: {fileID: 0}
+  LightOff: {fileID: 0}
 --- !u!1 &6916932657555217587
 GameObject:
   m_ObjectHideFlags: 0

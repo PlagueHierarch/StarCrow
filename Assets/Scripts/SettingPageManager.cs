@@ -11,8 +11,6 @@ public static class UserSettingSave
     public static float audio_Main = 1;
     public static float audio_Sfx = 1;
     public static float audio_Music = 1;
-    public static float gamma_temp = 0.2f;
-    public static bool isLightOn = true;
 }
 public class SettingPageManager : MonoBehaviour
 {
@@ -78,23 +76,9 @@ public class SettingPageManager : MonoBehaviour
     public void GammaControl()
     {
         UserSettingSave.gamma = GammaSlider.value;
-        if (UserSettingSave.isLightOn == false)
-        {
-            GammaImage.alpha = 1 - UserSettingSave.gamma + UserSettingSave.gamma_temp;
-        }
-        else GammaImage.alpha = 1 - UserSettingSave.gamma;
+        GammaImage.alpha = 1 - UserSettingSave.gamma;
     }
 
-    public void lightOn()
-    {
-        UserSettingSave.isLightOn = true;
-        GammaControl();
-    }
-    public void lightOff()
-    {
-        UserSettingSave.isLightOn = false;
-        GammaControl();
-    }
     public void SettingPageOff() //세팅 페이지의 나가기 버튼에 할당
     {
         Time.timeScale = 1f;
