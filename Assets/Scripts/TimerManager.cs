@@ -56,9 +56,6 @@ public class TimerManager : MonoBehaviour
                     StartCoroutine(gameObject.GetComponent<SpeechBubbleShow>().Bubble());
                 }
                 audiosource_Warning.Play();
-                //StartCoroutine(gameObject.GetComponent<SpeechBubbleShow>().Bubble());
-                //Debug.Log(gameObject.GetComponent<SpeechBubbleShow>().scriptNo);
-                //gameObject.GetComponent<SpeechBubbleShow>().scriptNo++;
                 noise.audioSource_crow.Play();
                 yield return new WaitForSeconds(1);
                 audiosource_Warning.Play();
