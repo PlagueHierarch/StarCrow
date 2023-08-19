@@ -32,12 +32,14 @@ public class boo4dark : MonoBehaviour
     }
     void Update()
     {
-        if (gammaSlider.value < 0.5 && book4on == true)
+        if (gammaSlider.value < 0.02 && book4on == true)
         {
-            //Debug.Log("Change sprite");
+            Debug.Log("Change sprite");
             showBook.pages[0] = darkPage;
             PageRenderer.sortingOrder = 6;
-
+            GameObject oldbook = GameObject.Find("Book(Clone)");
+            Destroy(oldbook);
+            StartCoroutine(showBook.Bookinstant(showBook.book));
             gameObject.GetComponent<boo4dark>().enabled = false;
 
 
