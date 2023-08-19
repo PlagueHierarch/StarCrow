@@ -45,10 +45,20 @@ public class TimerManager : MonoBehaviour
             if ((int)curTime == warning1 || (int)curTime == warning2)
             {
                 //시계탑 경고(말풍선)
+                if ((int)curTime == warning1)
+                {
+                    gameObject.GetComponent<SpeechBubbleShow>().scriptNo = 0;
+                    StartCoroutine(gameObject.GetComponent<SpeechBubbleShow>().Bubble());
+                }
+                else if ((int)curTime == warning2)
+                {
+                    gameObject.GetComponent<SpeechBubbleShow>().scriptNo = 1;
+                    StartCoroutine(gameObject.GetComponent<SpeechBubbleShow>().Bubble());
+                }
                 audiosource_Warning.Play();
-                StartCoroutine(gameObject.GetComponent<SpeechBubbleShow>().Bubble());
-                gameObject.GetComponent<SpeechBubbleShow>().scriptNo++;
-                //Debug.Log("warning");
+                //StartCoroutine(gameObject.GetComponent<SpeechBubbleShow>().Bubble());
+                //Debug.Log(gameObject.GetComponent<SpeechBubbleShow>().scriptNo);
+                //gameObject.GetComponent<SpeechBubbleShow>().scriptNo++;
                 noise.audioSource_crow.Play();
                 yield return new WaitForSeconds(1);
                 audiosource_Warning.Play();
