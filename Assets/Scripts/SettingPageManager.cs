@@ -12,6 +12,9 @@ public static class UserSettingSave
     public static float audio_Main = 1;
     public static float audio_Sfx = 1;
     public static float audio_Music = 1;
+    public static FullScreenMode StFullscreenM;
+    public static int StResolutionNum;
+    public static bool isFull;
 }
 public class SettingPageManager : MonoBehaviour
 {
@@ -26,15 +29,13 @@ public class SettingPageManager : MonoBehaviour
     public Dropdown DropdownResolution;
     public Toggle FullscreenToggle;
     List<Resolution>resolutions = new List<Resolution>();
-    int resolutionNum;
     FullScreenMode fullscreenM;
-
+    int resolutionNum;
     public static bool GamePaused = false;
 
     void Start()
     {
         SettingPage.SetActive(false);
-        Debug.Log(UserSettingSave.audio_Sfx);
         LoadSavedSetting();
         AudioControl_SFX();
         AudioControl_Music();
@@ -75,7 +76,6 @@ public class SettingPageManager : MonoBehaviour
     {
         UserSettingSave.audio_Sfx = SFXSlider.value;
         MasterVolume.SetFloat("Volume_SFX", Lerp(-20, 10, SFXSlider.value));
-        Debug.Log(UserSettingSave.audio_Sfx);
     }
     public void AudioControl_Music()
     {
@@ -99,7 +99,6 @@ public class SettingPageManager : MonoBehaviour
     public void QuitGame ()//에디터에선 작동 안됨(빌드 프로그램에선 정상 작동)
     {
         Application.Quit();
-        Debug.Log("Quit");
     }
 
     void ResOption()
@@ -110,7 +109,7 @@ public class SettingPageManager : MonoBehaviour
         foreach (Resolution item in resolutions)
         {
             Dropdown.OptionData option = new Dropdown.OptionData();
-            option.text = item.width + "x" + item.height;
+            option.text = item.width + "x" + item.height + " " +item.refreshRateRatio + "hz";
             DropdownResolution.options.Add(option);
 
             if (item.width == Screen.width && item.height == Screen.height) DropdownResolution.value = optionNum;
@@ -121,15 +120,18 @@ public class SettingPageManager : MonoBehaviour
         FullscreenToggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow)?true:false;
     }
 
-    public void FullScToggle(bool isFull)
+    public void FullScToggle()
     {
-        fullscreenM = isFull?FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
-        Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullscreenM);
+        bool Fullsc = UserSettingSave.isFull;
+        fullscreenM = UserSettingSave.isFull?FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+        Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullscreenM, resolutions[resolutionNum].refreshRateRatio);
+        UserSettingSave.isFull = !Fullsc;
+        Debug.Log(UserSettingSave.isFull);
     }
 
     public void DropboxOptionChange(int x)
     {
         resolutionNum = x;
-        Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullscreenM);
+        Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullscreenM, resolutions[resolutionNum].refreshRateRatio);
     }
 }
