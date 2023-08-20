@@ -488,6 +488,22 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3551511246153417813, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 869.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551511246153417813, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 488.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551511246153417813, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 17.200012
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551511246153417813, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9.669983
+      objectReference: {fileID: 0}
     - target: {fileID: 3665769636369704366, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -628,6 +644,10 @@ PrefabInstance:
       propertyPath: TimerManager
       value: 
       objectReference: {fileID: 1114663844}
+    - target: {fileID: 8307836271822909036, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9128510463001371692, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_Value
       value: 1

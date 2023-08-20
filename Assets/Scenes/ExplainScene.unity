@@ -492,6 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scenename: 
   FadeManager: {fileID: 202325752}
+  SettingPageManager: {fileID: 0}
 --- !u!114 &484664282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1585,6 +1586,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1260649096}
+    - target: {fileID: 3551511246153417813, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 646.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551511246153417813, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 363.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551511246153417813, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 40.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551511246153417813, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3947410194118156619, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -1756,6 +1773,10 @@ PrefabInstance:
     - target: {fileID: 8264742582756326848, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307836271822909036, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8652445957642481737, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
