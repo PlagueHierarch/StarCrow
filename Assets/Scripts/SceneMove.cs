@@ -37,6 +37,12 @@ public class SceneMove : MonoBehaviour
         StartCoroutine(ChangeScene("ExplainScene"));
     }
 
+    public void BackToMain()
+    {
+        SettingPageManager.SettingPageOff();
+        StartCoroutine(ChangeScene("Title"));
+    }
+
 }
 
 

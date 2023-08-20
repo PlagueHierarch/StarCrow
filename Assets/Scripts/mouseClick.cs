@@ -59,7 +59,7 @@ public class mouseClick : MonoBehaviour
         {
             audioSource.Play();
             clickCount++;
-            Debug.Log("clickcount = " + clickCount);
+            //Debug.Log("clickcount = " + clickCount);
             isClickContinued = false;
         }
     }

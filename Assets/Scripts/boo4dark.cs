@@ -39,6 +39,7 @@ public class boo4dark : MonoBehaviour
             Time.timeScale = 1f;
             showBook.pages[0] = darkPage;
             showBook.sortingOrder = 7;
+            PlayerPrefs.SetInt("darkPage", 1);
             if (BookSwitch.BookOn == true)
             {
                 if (GameObject.FindGameObjectWithTag("Book").GetComponent<PageTurner>().BookNo == 4)
