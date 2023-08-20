@@ -39,6 +39,11 @@ public class SceneMove : MonoBehaviour
 
     public void BackToMain()
     {
+        Time.timeScale = 1f;
+        BookSwitch.BookOn = false;
+        SettingPageManager.GamePaused = false;
+        SpeechBubbleShow.bubbleOn = false;
+        PlayerPrefs.DeleteAll();
         SettingPageManager.SettingPageOff();
         StartCoroutine(ChangeScene("Title"));
     }
