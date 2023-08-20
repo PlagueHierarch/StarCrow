@@ -3911,7 +3911,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 187abdc6691f5f64aa79e5fd0b032e0f, type: 3}
   - {fileID: 21300000, guid: cd448a42ca9e5ed49a43dd2928402310, type: 3}
   maxPage: 3
-  sortingOrder: 4
+  sortingOrder: 5
   pageTurner: {fileID: 0}
   bookNo: 0
 --- !u!60 &1606017846

@@ -65,6 +65,7 @@ public class PasswordManager : MonoBehaviour
 
     private void right()
     {
+        BookSwitch.BookOn = false;
         savepassword.answer = null;
         PlayerPrefs.DeleteAll();
         StartCoroutine(TimerManager.timerStop());

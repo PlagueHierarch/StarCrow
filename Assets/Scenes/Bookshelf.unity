@@ -277,7 +277,7 @@ MonoBehaviour:
   pages:
   - {fileID: 21300000, guid: d5ef794c08564674b8dcaff4244335e5, type: 3}
   maxPage: 0
-  sortingOrder: 4
+  sortingOrder: 5
   pageTurner: {fileID: 0}
   bookNo: 3
 --- !u!82 &24838732
@@ -482,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 1918842823}
     - target: {fileID: 3323921484596394663, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_SortingOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3665769636369704366, guid: 13554496c0b8e9443b315377bec8f2b2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1740,7 +1740,7 @@ MonoBehaviour:
   pages:
   - {fileID: 21300000, guid: 48752ebda972b57478a0f059db327045, type: 3}
   maxPage: 0
-  sortingOrder: 4
+  sortingOrder: 5
   pageTurner: {fileID: 0}
   bookNo: 1
 --- !u!82 &1226787412
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   pages:
   - {fileID: 21300000, guid: fb7a708bf4a4f9645a6f51b02b155643, type: 3}
   maxPage: 0
-  sortingOrder: 4
+  sortingOrder: 5
   pageTurner: {fileID: 0}
   bookNo: 4
 --- !u!82 &1283866972
@@ -2717,6 +2717,10 @@ MonoBehaviour:
   WaitingTime_Cat: 4
   TimerManager: {fileID: 1114663844}
   catClick: {fileID: 0}
+  magicFail: {fileID: 0}
+  answerbook: {fileID: 0}
+  AnswerBookScript: {fileID: 0}
+  passwordManager: {fileID: 0}
   Noise: 0
 --- !u!4 &1625589440
 Transform:
@@ -3091,7 +3095,7 @@ MonoBehaviour:
   pages:
   - {fileID: 21300000, guid: a7984a6130c2d9f4b906a171ee60e28d, type: 3}
   maxPage: 0
-  sortingOrder: 4
+  sortingOrder: 5
   pageTurner: {fileID: 0}
   bookNo: 2
 --- !u!82 &1824120939
@@ -3398,5 +3402,5 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_TargetDisplay: 0

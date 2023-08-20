@@ -52,7 +52,7 @@ public class CatClick : MonoBehaviour
     private IEnumerator changesprite()
     {
         SpeechBubbleShow.bubbleOn = true;
-        speechbubble.scriptNo = noiseManager.Noise - 1;
+        speechbubble.scriptNo = noiseManager.Noise;
         audioSource.clip = cathiss;
         audioSource.Play();
         if (speechbubble.scriptNo == 0)
