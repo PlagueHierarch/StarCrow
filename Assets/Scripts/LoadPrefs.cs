@@ -38,4 +38,9 @@ public class LoadPrefs : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
+    public void DeleteSave()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }

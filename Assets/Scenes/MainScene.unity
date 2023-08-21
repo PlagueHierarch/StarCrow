@@ -2191,7 +2191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   password: "\uB2EC\uB3C4\uC5C6\uB294\uAE5C\uAE5C\uD55C\uBC24\uC5D0\uBE5B\uB098\uB294\uBCC4"
-  answersubmitter: {fileID: 902597692}
+  answersubmitter: {fileID: 0}
   noiseObject: {fileID: 1285184819}
   DoorOpen: {fileID: 1843075335}
   TimerManager: {fileID: 1415805522}
@@ -2982,7 +2982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   password: "\uB2EC\uB3C4\uC5C6\uB294\uAE5C\uAE5C\uD55C\uBC24\uC5D0\uBE5B\uB098\uB294\uBCC4"
-  answersubmitter: {fileID: 902597692}
+  answersubmitter: {fileID: 1150143170}
   noiseObject: {fileID: 1285184819}
   DoorOpen: {fileID: 1843075335}
   TimerManager: {fileID: 1415805522}
