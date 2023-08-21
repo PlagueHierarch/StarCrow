@@ -35,6 +35,7 @@ public class PasswordManager : MonoBehaviour
     public void SubmitAnswer()
     {
         savepassword.answer = answersubmitter.text;
+        Debug.Log("Submit");
     }
 
     public void CheckAnswer()
