@@ -475,7 +475,6 @@ GameObject:
   - component: {fileID: 577912641}
   - component: {fileID: 577912640}
   - component: {fileID: 577912639}
-  - component: {fileID: 577912642}
   m_Layer: 5
   m_Name: Button_GameStart
   m_TagString: Untagged
@@ -560,7 +559,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 577912642}
+      - m_Target: {fileID: 1677020502}
         m_TargetAssemblyTypeName: LoadPrefs, Assembly-CSharp
         m_MethodName: DeleteSave
         m_Mode: 1
@@ -610,19 +609,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577912637}
   m_CullTransparentMesh: 1
---- !u!114 &577912642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577912637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6447b0220b854040a76bd6e563b8590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noiseManagement: {fileID: 0}
 --- !u!1 &656933884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,6 +1867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1677020500}
   - component: {fileID: 1677020501}
+  - component: {fileID: 1677020502}
   m_Layer: 0
   m_Name: placeholder
   m_TagString: Untagged
@@ -1948,6 +1935,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0001, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1677020502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677020499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6447b0220b854040a76bd6e563b8590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseManagement: {fileID: 0}
 --- !u!1 &1816945519
 GameObject:
   m_ObjectHideFlags: 0

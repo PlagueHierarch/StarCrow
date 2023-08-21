@@ -42,5 +42,6 @@ public class LoadPrefs : MonoBehaviour
     public void DeleteSave()
     {
         PlayerPrefs.DeleteAll();
+        Debug.Log("Save deleted");
     }
 }
