@@ -3401,6 +3401,8 @@ MonoBehaviour:
   answerbook: {fileID: 428405391}
   AnswerBookScript: {fileID: 1130894544}
   passwordManager: {fileID: 902597691}
+  bubbleshow: {fileID: 0}
+  dialogueManager: {fileID: 672915145}
   Noise: 0
 --- !u!4 &1285184820
 Transform:

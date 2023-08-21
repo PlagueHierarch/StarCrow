@@ -59,9 +59,9 @@ public class PasswordManager : MonoBehaviour
         wrongAnswer = true;
         noiseObject.AddNoise();
         yield return new WaitForSeconds(noiseObject.WaitingTime_Crow);
-        bubbleshow.scriptNo = noiseObject.Noise-1;
+        
         //Debug.Log(savepassword.answer);
-        yield return StartCoroutine(bubbleshow.Bubble());
+        
         wrongAnswer = false;
     }
 
