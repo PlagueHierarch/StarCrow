@@ -70,11 +70,13 @@ public class NoiseManagement : MonoBehaviour
     private IEnumerator GameOverCat()
     {
         catClick.spriteRenderer.sprite = catClick.cat2;
+        bubbleshow.scriptNo = Noise - 1;
         audioSource_crow.Play();
         yield return new WaitForSeconds(WaitingTime_Crow);
         audioSource_cat.clip = ad[Random.Range(2, 5)];
         audioSource_cat.Play();
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(bubbleshow.Bubble());
+        //yield return new WaitForSeconds(3f);
         savepassword.answer = null;
         PlayerPrefs.DeleteAll();
         StartCoroutine(TimerManager.timerStop());
