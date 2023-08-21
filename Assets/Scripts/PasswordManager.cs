@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public static class savepassword //Scene 전환시에도 답안을 유지하기 위한 static 필드
 {
@@ -14,7 +15,7 @@ public class PasswordManager : MonoBehaviour
 {
     // (password: 미리 정해진 답, answer: 플레이어가 최종 제출한 답)
     public string password;
-    public InputField answersubmitter;
+    public TMP_InputField answersubmitter;
     public NoiseManagement noiseObject;
     public SceneMove DoorOpen;
     public TimerManager TimerManager;
