@@ -41,7 +41,7 @@ public class NoiseManagement : MonoBehaviour
         Noise++;
         PlayerPrefs.SetInt("catCounter", Noise);
         magicFail.Failed();
-        if (Noise < 5) StartCoroutine(Warning());
+        if (Noise < 3) StartCoroutine(Warning());
         else StartCoroutine(GameOverCat());
     }
 

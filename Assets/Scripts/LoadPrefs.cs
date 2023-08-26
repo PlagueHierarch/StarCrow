@@ -42,6 +42,7 @@ public class LoadPrefs : MonoBehaviour
     public void DeleteSave()
     {
         PlayerPrefs.DeleteAll();
+        Timer.time = 1800.0f;
         Debug.Log("Save deleted");
     }
 }

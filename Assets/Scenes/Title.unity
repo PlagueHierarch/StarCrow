@@ -1010,57 +1010,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958901986}
   m_CullTransparentMesh: 1
---- !u!1 &972157518
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 972157520}
-  - component: {fileID: 972157519}
-  m_Layer: 0
-  m_Name: Timer_Management
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &972157519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972157518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce71ff3b7e8daa74ead86d94024cbb82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isStop: 0
-  GameOver_Timer: {fileID: 0}
-  audiosource_Warning: {fileID: 0}
-  curTime: 0
-  warning1: 1200
-  warning2: 600
-  noise: {fileID: 0}
---- !u!4 &972157520
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972157518}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25795826, y: -0.41737545, z: 125.33811}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1232529296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,7 +1441,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1514019983
 GameObject:
@@ -1524,7 +1473,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1514019985
 AudioSource:
@@ -1741,7 +1690,7 @@ PrefabInstance:
     - target: {fileID: 6751251495561263180, guid: 05b218820ffa19a478445137ee3b97f7, type: 3}
       propertyPath: TimerManager
       value: 
-      objectReference: {fileID: 972157519}
+      objectReference: {fileID: 0}
     - target: {fileID: 7536168551553495025, guid: 05b218820ffa19a478445137ee3b97f7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1888,7 +1837,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1677020501
 BoxCollider2D:
@@ -1994,7 +1943,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922474842
 GameObject:
