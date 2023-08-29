@@ -35,7 +35,8 @@
 	<<changescene DialogueRunner GameOver_Stay>>
 -> 그럼 너는 여기에 남아. 나 혼자 나갈테니까.
 	네 맘대로 해. 
-	대신 네 탈출시도 때문에 내 평화로운 삶에 지장이 간다면 나도 가만히 있지는 않을 거야.
+	대신 네 탈출시도 때문에 내 평화로운 삶에 지장이 간다면 
+	나도 가만히 있지는 않을 거야.
 	<<changescene DialogueRunner Story_no4>>
 ===
 title: Explain

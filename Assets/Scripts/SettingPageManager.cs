@@ -53,7 +53,13 @@ public class SettingPageManager : MonoBehaviour
         SettingPage.SetActive(true);
         
     }
-    
+
+    public void OpenSettingPageTitle()
+    {
+        SettingPage.SetActive(true);
+
+    }
+
     public float Lerp(float volmin, float volmax, float slidervalue)
     {
         float volume = volmin + (volmax - volmin) * slidervalue;
@@ -93,6 +99,12 @@ public class SettingPageManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         TimerManager.timerRestart();
+        SettingPage.SetActive(false);
+        GamePaused = false;
+    }
+
+    public void SettingPageOffTitle() //세팅 페이지의 나가기 버튼에 할당
+    {
         SettingPage.SetActive(false);
         GamePaused = false;
     }
