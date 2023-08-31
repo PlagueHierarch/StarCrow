@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Yarn.Unity;
 
 public class YarnScript : MonoBehaviour
@@ -8,6 +9,8 @@ public class YarnScript : MonoBehaviour
     public GameObject crow;
     public GameObject cat;
     public GameObject bubble;
+    public VerticalLayoutGroup OptionList;
+    bool optionON = false;
 
     Vector3 crowpos;
     Vector3 catpos;
@@ -16,6 +19,15 @@ public class YarnScript : MonoBehaviour
     {
         crowpos = crow.transform.position;
         catpos = cat.transform.position;
+    }
+
+    public void Update()
+    {
+        if(optionON == true)
+        {
+            OptionList.spacing = 41;
+        }
+        
     }
 
     [YarnCommand("changescene")]
@@ -36,5 +48,17 @@ public class YarnScript : MonoBehaviour
         {
             bubble.transform.position = catpos;
         }
+    }
+
+    [YarnCommand("optionlistverticalON")]
+    public void OptionListVerticalON()
+    {
+        optionON = true;
+    }
+
+    [YarnCommand("optionlistverticalOFF")]
+    public void OptionListVerticalOFF()
+    {
+        optionON = false;
     }
 }

@@ -32,16 +32,6 @@ public class CatClick : MonoBehaviour
     {
         speechbubble.obj = 1;
 
-        if (speechbubble.scriptNo > 0)
-        {
-            speechbubble.dialoguepos = dialoguepos;
-        }
-
-        else
-        {
-            speechbubble.dialoguepos = dialoguepos2;
-        }
-
         if(SpeechBubbleShow.bubbleOn == false && SettingPageManager.GamePaused == false && BookSwitch.BookOn == false)
         {
             StartCoroutine(changesprite());
@@ -53,6 +43,15 @@ public class CatClick : MonoBehaviour
     {
         SpeechBubbleShow.bubbleOn = true;
         speechbubble.scriptNo = noiseManager.Noise;
+        if (speechbubble.scriptNo == 0)
+        {
+            speechbubble.dialoguepos = dialoguepos2;
+        }
+
+        else
+        {
+            speechbubble.dialoguepos = dialoguepos;
+        }
         audioSource.clip = cathiss;
         audioSource.Play();
         if (speechbubble.scriptNo == 0)
