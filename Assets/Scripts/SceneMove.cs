@@ -31,6 +31,11 @@ public class SceneMove : MonoBehaviour
         StartCoroutine(ChangeScene(Scenename));
     }
 
+    public void ChangeSceneAlt(string _Scenename)
+    {
+        StartCoroutine(ChangeScene(_Scenename));
+    }
+
     public void ExplainSceneRE()
     {
         SettingPageManager.SettingPageOff();

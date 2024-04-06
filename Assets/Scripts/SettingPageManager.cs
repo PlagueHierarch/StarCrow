@@ -5,16 +5,49 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using System.IO;
 
 public static class UserSettingSave
 {
     public static float gamma = 1;
-    public static float audio_Main = 1;
+    public static float audio_Main = 0.75f;
     public static float audio_Sfx = 1;
     public static float audio_Music = 1;
     public static FullScreenMode StFullscreenM;
     public static int StResolutionNum;
     public static bool isFull = true;
+
+    public static void SetJson()
+    {
+        bool isClearTEMP = SettingJsonManager.Instance.settings.IsEverCleared;
+        Settings settings = new()
+        {
+            _gamma = gamma,
+            _audio_Main = audio_Main,
+            _audio_Sfx = audio_Sfx,
+            _audio_Music = audio_Music,
+            _StFullscreenM = (int)StFullscreenM,
+            _StResolutionNum = StResolutionNum,
+            _isFull = isFull,
+            IsEverCleared = isClearTEMP
+        };
+
+        SettingJsonManager.Instance.settings = settings;
+    }
+
+    public static void SetSettings()
+    {
+        Settings settings = SettingJsonManager.Instance.settings;
+        gamma = settings._gamma;
+        audio_Main = settings._audio_Main;
+        audio_Sfx = settings._audio_Sfx;
+        audio_Music = settings._audio_Music;
+        StFullscreenM = (FullScreenMode)settings._StFullscreenM;
+        StResolutionNum = settings._StResolutionNum;
+        isFull = settings._isFull;
+
+        Debug.Log("Parse Success");
+    }
 }
 public class SettingPageManager : MonoBehaviour
 {
@@ -101,6 +134,7 @@ public class SettingPageManager : MonoBehaviour
         TimerManager.timerRestart();
         SettingPage.SetActive(false);
         GamePaused = false;
+        SettingJsonManager.Instance.SaveSettings(false);
     }
 
     public void SettingPageOffTitle() //세팅 페이지의 나가기 버튼에 할당

@@ -20,6 +20,11 @@ public class StoryFlowManager : MonoBehaviour
     }
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Story_no1")
+        {
+            Debug.Log("Scene Detected");
+            GameObject.Find("Btn_skip").SetActive(SettingJsonManager.Instance.isCleared());
+        }
         StartCoroutine(StoryWaitingTime());
     }
     IEnumerator StoryWaitingTime()
@@ -28,5 +33,4 @@ public class StoryFlowManager : MonoBehaviour
         nextScene.GetComponent<BoxCollider2D>().enabled = true;
         ProceedButton.SetActive(true);
     }
-
 }

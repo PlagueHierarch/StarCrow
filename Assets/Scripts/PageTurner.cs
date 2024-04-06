@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ public class PageTurner : MonoBehaviour
 
     AudioSource audioSource;
     public SpriteRenderer pageSprite;
+    public List<SpriteRenderer> BookSprites = new(); //책이 클릭되었는지를 확인하기 위한 리스트
 
     public Sprite[] pages;
     public int maxPage;
@@ -36,6 +38,8 @@ public class PageTurner : MonoBehaviour
         RightPage = GameObject.Find("RightPage");
         LeftPage = GameObject.Find("LeftPage");
         pageSprite = transform.Find("Page").GetComponent<SpriteRenderer>();
+
+        BookSprites = gameObject.GetComponentsInChildren<SpriteRenderer>().ToList();
     }
 
     private void Start()
@@ -55,8 +59,8 @@ public class PageTurner : MonoBehaviour
        
         if (bookEnabled == true)
         {
-            //ESC 입력 시 책 오브젝트 파괴
-            if (Input.GetKeyDown(KeyCode.Escape))
+            //조건 충족 시 책 오브젝트 파괴
+            if (DicideDestroyBook())
             {
                 StartCoroutine(DestroyBook());
             }
@@ -69,8 +73,6 @@ public class PageTurner : MonoBehaviour
                     dir = RightPage.GetComponent<PageDetect>().direction;
                     StartCoroutine(TurnPage_Wait());
                 }
-
-
             }
 
             //책 왼쪽을 누를 경우 뒤로 넘기는 애니메이션 재생
@@ -81,10 +83,30 @@ public class PageTurner : MonoBehaviour
                     dir = LeftPage.GetComponent<PageDetect>().direction;
                     StartCoroutine(TurnPage_Wait());
                 }
-
-
             }
         }
+    }
+
+    private bool DicideDestroyBook() //ESC 클릭시/책 이외의 공간에 마우스 클릭 시 true 반환
+    {
+        //Debug.Log("Testing New Method");
+        if (Input.GetKeyDown(KeyCode.Escape))
+            return true;
+        
+        else if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Mouse Click Detected");
+            foreach (SpriteRenderer renderer in BookSprites)
+            {
+                Vector3 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                MousePos.z = renderer.transform.position.z;
+                if (renderer.bounds.Contains(MousePos)) 
+                    return false;
+            }
+            return true;
+        }
+        else
+            return false;
     }
 
     private IEnumerator TurnPage(string dir)
