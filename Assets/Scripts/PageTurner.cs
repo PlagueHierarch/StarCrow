@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PageTurner : MonoBehaviour
@@ -92,7 +93,7 @@ public class PageTurner : MonoBehaviour
         //Debug.Log("Testing New Method");
         if (Input.GetKeyDown(KeyCode.Escape))
             return true;
-        
+        #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         else if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Mouse Click Detected");
@@ -104,7 +105,23 @@ public class PageTurner : MonoBehaviour
                     return false;
             }
             return true;
+        }   
+        #else 
+        else if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                Vector3 touchPos = touch.position;
+                foreach (SpriteRenderer renderer in BookSprites)
+                {
+                    touchPos.z = renderer.transform.position.z;
+                    if (!renderer.bounds.Contains(touchPos))
+                        return true;
+                }
+            }
+            return false;
         }
+        #endif
         else
             return false;
     }

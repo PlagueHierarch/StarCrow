@@ -13,7 +13,7 @@ public class TimerManager : MonoBehaviour
     public bool isStop = false; //bool 수정시 버그 발생
     public SceneMove GameOver_Timer;
     public AudioSource audiosource_Warning;
-    public float curTime; //빌드 전에 private로 만들기
+    public float curTime;
     public int warning1 = 1200;
     public int warning2 = 600;
     public NoiseManagement noise;
