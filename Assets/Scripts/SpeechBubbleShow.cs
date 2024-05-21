@@ -11,10 +11,13 @@ public class SpeechBubbleShow : MonoBehaviour
     public CanvasGroup canvasGroup;
     public float fadetime;
     public float onTime;
+    public float onTime2;
 
     public float fontSize;
 
     public static bool bubbleOn;
+    private bool typeOn = false;
+    Coroutine coroutine;
 
     public GameObject dialoguepos;
 
@@ -27,11 +30,18 @@ public class SpeechBubbleShow : MonoBehaviour
     {
         bubbleOn = false;
         canvasGroup = SpeechBubble.GetComponent<CanvasGroup>();
+        onTime2 = onTime;
     }
 
-    private void Start()
+    private void Update()
     {
-        //dialogue = DialogueManager.GetComponent<JsonParsing>().line.Dialogues[obj].Dialogue[scriptNo].text;
+        if(typeOn && Input.GetMouseButtonDown(0))
+        {
+            onTime2 = onTime - 2;
+            StopCoroutine(coroutine);
+            textmesh.text = dialogue;
+            typeOn = false;
+        }
     }
     private void OnMouseDown()
     {
@@ -64,8 +74,13 @@ public class SpeechBubbleShow : MonoBehaviour
         dialogue = DialogueManager.GetComponent<JsonParsing>().line.Dialogues[obj].Dialogue[scriptNo].text;
         textmesh.fontSize = fontSize;
         textmesh.text = dialogue;
-        StartCoroutine(Typing());
-        yield return new WaitForSeconds(onTime);
+        coroutine = StartCoroutine(Typing());
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("1 " + onTime);
+        Debug.Log("2 " + onTime2);
+        if (onTime2 < onTime) yield return new WaitForSeconds(onTime2);
+        else yield return new WaitForSeconds(onTime);
+        onTime2 = onTime;
         yield return StartCoroutine(fadeBubble());
         Destroy(bubble);
         bubbleOn = false;
@@ -78,7 +93,10 @@ public class SpeechBubbleShow : MonoBehaviour
             textmesh.text = dialogue.Substring(0, i);
 
             yield return new WaitForSeconds(0.1f);
+
+            if(!typeOn && i >= 1) typeOn = true;
         }
 
+        typeOn = false;
     }
 }

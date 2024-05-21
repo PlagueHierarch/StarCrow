@@ -10,6 +10,7 @@ public class StoryFlowManager : MonoBehaviour
    
     public bool UsingTimer = false;
     public GameObject ProceedButton = null;
+    public GameObject SkipButton = null;
     public GameObject nextScene;
     
     public float dialogTime = 0f;//진행 버튼이 나오기까지의 시간
@@ -23,7 +24,7 @@ public class StoryFlowManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Story_no1")
         {
             Debug.Log("Scene Detected");
-            GameObject.Find("Btn_skip").SetActive(SettingJsonManager.Instance.isCleared());
+            SkipButton.SetActive(SettingJsonManager.Instance.isCleared());
         }
         StartCoroutine(StoryWaitingTime());
     }
@@ -31,6 +32,7 @@ public class StoryFlowManager : MonoBehaviour
     {
         yield return new WaitForSeconds(dialogTime);
         nextScene.GetComponent<BoxCollider2D>().enabled = true;
+        SkipButton.SetActive(true);
         ProceedButton.SetActive(true);
     }
 }

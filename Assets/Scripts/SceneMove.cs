@@ -13,7 +13,7 @@ public class SceneMove : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (BookSwitch.BookOn == false && SettingPageManager.GamePaused == false)
+        if (BookSwitch.BookOn == false && SettingPageManager.GamePaused == false && SceneManager.GetActiveScene().name != "Story_no1")
         {
             StartCoroutine(ChangeScene(Scenename));
         }
